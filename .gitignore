@@ -15,9 +15,12 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+<<<<<<< HEAD
 
 .project
 .settings/*
 buld/*
 .DS_Store
 WebContent/*
+=======
+>>>>>>> a2513d1890e8946271280e7997305770d913a4b2
