@@ -22,3 +22,4 @@ build/*
 bin/*
 *.DS_Store
 *.jar
+.cache-main
