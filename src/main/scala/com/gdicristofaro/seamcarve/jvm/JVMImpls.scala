@@ -50,7 +50,7 @@ class JVMImage(val bufferedImage : BufferedImage) extends Image {
   }
 }
 
-object Common {
+object JVMCommon {
    def getTmpFile = {
     val currentTime = System.currentTimeMillis
     val file = File.createTempFile(SeamConstants.TMP_FILE_PREFIX + currentTime, ".png")
@@ -63,7 +63,7 @@ class JVMImgPointer(buffImg : BufferedImage) extends ImagePointer {
   
 
   
-  val file = Common.getTmpFile
+  val file = JVMCommon.getTmpFile
   ImageIO.write(buffImg, "png", file)
 
   var img : JVMImage = null
@@ -116,11 +116,11 @@ class JVMImageUtils extends ImageUtils {
 		
 		  val observer : ImageObserver = null
   		//draw background
-  		g.drawImage(background.asInstanceOf[java.awt.Image], 0, 0, null)
+  		g.drawImage(background.asInstanceOf[JVMImage].bufferedImage, 0, 0, null)
   		
   		//set composite
   		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, foregroundAmount))
-  		g.drawImage(foreground.asInstanceOf[java.awt.Image],0,0,null)
+  		g.drawImage(foreground.asInstanceOf[JVMImage].bufferedImage,0,0,null)
 		  g.dispose
 		  
 		  ptrs(i) = new JVMImgPointer(thisImg) 
@@ -138,12 +138,12 @@ class JVMImageUtils extends ImageUtils {
 		val g = toReturn.createGraphics()
 		
 		if (position == TopLeftPosition()) {
-			g.drawImage(orig.asInstanceOf[java.awt.Image],0,0,null)
+			g.drawImage(orig.asInstanceOf[JVMImage].bufferedImage,0,0,null)
 		}
 		else {
 			val widthMargin = (newWidth - orig.width) / 2
 			val heightMargin = (newHeight - orig.height) / 2
-			g.drawImage(orig.asInstanceOf[java.awt.Image],widthMargin,heightMargin,null)
+			g.drawImage(orig.asInstanceOf[JVMImage].bufferedImage,widthMargin,heightMargin,null)
 			g.dispose
 		}
 		
