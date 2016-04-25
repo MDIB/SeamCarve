@@ -1,4 +1,4 @@
-package com.gdicristofaro.seamcarve
+package com.gdicristofaro.seamcarve.core
 
 object SeamConstants {
   	//maximum energy on average for seam

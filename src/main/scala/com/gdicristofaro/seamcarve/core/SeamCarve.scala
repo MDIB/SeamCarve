@@ -1,8 +1,5 @@
 //documentation http://docs.scala-lang.org/style/scaladoc.html
-package com.gdicristofaro.seamcarve
-
-import com.gdicristofaro.seamcarve.jvm.Utils
-
+package com.gdicristofaro.seamcarve.core
 
 
 object DynamicProgramming {
@@ -131,29 +128,30 @@ object DynamicProgramming {
 
 /**
  * carves up the image and provides object for solution
- * @param img				the image to be carved
- * @param maxEnergy			the maximum allowable energy to remove
+ * @param imgUtils				the utils to be used for processing the image
+ * @param img							the image to be carved
+ * @param maxEnergy				the maximum allowable energy to remove
  * @param vertShrinkNum		how much to shrink vertically
  * @param horzShrinkNum		how much to shrink horizontally
- * @param emeth				the energy method to use
+ * @param emeth						the energy method to use
  * @param imageEnlarge		whether or not to enlarge the image using this process
  */
-class SeamCarve (img : Image, maxEnergy : Double, 
+class SeamCarve (imgUtils : ImageUtils, img : Image, maxEnergy : Double, 
     vertShrinkNum: Int, horzShrinkNum: Int, emeth: EnergyMethod, imageEnlarge : Boolean) {
   
 	/**
 	 * default constructor for SeamCarve where all defaults are assumed
 	 * @param img		the image to carve
 	 */
-	def this(img : Image) = this(img, 1,
+	def this(imgUtils : ImageUtils, img : Image) = this(imgUtils, img, 1,
 	    (SeamConstants.SEAM_DEFAULT_MAX_VERT_PROPORTION * img.height).toInt, 
 	    (SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.width).toInt, new EnergyMethodE1, false)
 	
 	
-	val eget = new EnergyRetriever(img, emeth)
+	val eget = new EnergyRetriever(imgUtils, img, emeth)
 	val emap = eget.getEnergyMap
 	
-	val originalGraph = new SeamMap(emap, img)
+	val originalGraph = new SeamMap(imgUtils, emap, img)
 	
 	// vals for the finished graph and the reverse order of Seams - 
 	// if image enlarge, gets both horizontal and vertical seams
@@ -247,11 +245,11 @@ class SeamCarve (img : Image, maxEnergy : Double,
 
 		        //get image with seam drawn on it
 		        val nextImage = drawSeamNodes(curImage.copy, seam, Color.RED)
-		        val nextImgPtr = ImageUtils.DEFAULT.createImagePointer(nextImage)
+		        val nextImgPtr = imgUtils.createImagePointer(nextImage)
 		        (curArray :+ nextImgPtr, nextImage)		        
 	}
 
-	  val graphWithSeams = new SeamMap(emap, seampic)
+	  val graphWithSeams = new SeamMap(imgUtils, emap, seampic)
 	  
 	  //show seams being drawn
 	  val (_, seamRemoval) = revOrderSeams.reverse.foldLeft( (graphWithSeams, Array[ImagePointer]() ) ) {
@@ -262,8 +260,8 @@ class SeamCarve (img : Image, maxEnergy : Double,
 	      
 	      (newGraph,
 	          theArray :+ 
-	            ImageUtils.DEFAULT.createImagePointer(
-	              ImageUtils.DEFAULT.giveEdges(
+	            imgUtils.createImagePointer(
+	              imgUtils.giveEdges(
 	                newGraph.getImage, Color.BLACK, img.height, img.width, CenterPosition())))
 	  }
 
@@ -272,8 +270,8 @@ class SeamCarve (img : Image, maxEnergy : Double,
 	  //combine with energy movie pictures
 
 	  eget.getAnimPics ++ animpics ++ seamRemoval ++ 
-	    ImageUtils.DEFAULT.createManyImagePointers(
-        ImageUtils.DEFAULT.giveEdges(getImage, Color.BLACK, img.height, img.width, CenterPosition()), 60)
+	    imgUtils.createManyImagePointers(
+        imgUtils.giveEdges(getImage, Color.BLACK, img.height, img.width, CenterPosition()), 60)
 	}
 	
 	

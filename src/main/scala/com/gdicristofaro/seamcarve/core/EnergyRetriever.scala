@@ -1,19 +1,13 @@
-package com.gdicristofaro.seamcarve
-
-import java.io.File
-
-import com.gdicristofaro.seamcarve.jvm.Utils;
-
-
+package com.gdicristofaro.seamcarve.core
 
 abstract class EnergyMethod
 case class EnergyMethodE1() extends EnergyMethod
 case class EnergyMethodHoG() extends EnergyMethod
 
 
-class EnergyRetriever(img: Image, emeth: EnergyMethod) {
+class EnergyRetriever(imgUtils: ImageUtils, img: Image, emeth: EnergyMethod) {
   
-  def this(img: Image) = this(img, SeamConstants.DEFAULT_ENERGY_METHOD)
+  def this(imgUtils: ImageUtils, img: Image) = this(imgUtils, img, SeamConstants.DEFAULT_ENERGY_METHOD)
   
     
   /**
@@ -105,7 +99,7 @@ class EnergyRetriever(img: Image, emeth: EnergyMethod) {
    */
   def getImage() = {
     val emap = getEnergyMap()
-    val newImage = ImageUtils.DEFAULT.createImage(emap.width, emap.height)
+    val newImage = imgUtils.createImage(emap.width, emap.height)
     for (x <- 0 to (emap.width - 1); y <- 0 to (emap.height - 1)) {
       newImage.setColor(x, y, getEnergyColor(emap.getEnergy(x, y)));
     }
@@ -119,8 +113,8 @@ class EnergyRetriever(img: Image, emeth: EnergyMethod) {
  */
   def getAnimPics() = {
 		val energyImg = getImage
-		val images = ImageUtils.DEFAULT.generateFadeInImages(img, energyImg, 80);
-		val goback = ImageUtils.DEFAULT.generateFadeInImages(energyImg, img, 20);
+		val images = imgUtils.generateFadeInImages(img, energyImg, 80);
+		val goback = imgUtils.generateFadeInImages(energyImg, img, 20);
 		images ++ goback
   }
 }

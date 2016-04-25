@@ -1,4 +1,4 @@
-package com.gdicristofaro.seamcarve
+package com.gdicristofaro.seamcarve.core
 
 import scala.collection.immutable.HashMap
 
@@ -141,12 +141,13 @@ private object Factory {
  
 
 
- class SeamMap private(neighbormap : (HashMap[Node, Neighbors], Node)) {
+ class SeamMap private(imgUtils : ImageUtils, neighbormap : (HashMap[Node, Neighbors], Node)) {
 
    val neighbors = neighbormap._1
    val upperLeft = neighbormap._2
 
-   def this(emap : EnergyMap, img : Image) = this(Factory.getNeighbors(emap : EnergyMap, img : Image))
+   def this(imgUtils : ImageUtils, emap : EnergyMap, img : Image) = 
+     this(imgUtils, Factory.getNeighbors(emap : EnergyMap, img : Image))
    
    
 
@@ -486,7 +487,7 @@ private object Factory {
 		  	  }
 	  }  
 	  
-  	  /**
+  	/**
 	   * repairs all nodes for a horizontal seam being removed
 	   * @param nodeList		List of nodes to remove
 	   * @param newNeighbors	the neighbors to remove
@@ -522,8 +523,8 @@ private object Factory {
 		      if (firstRow.foldLeft(false)(
 		          (prev, thisItem) => (prev || thisItem == hd ))) {	
 		    	  dir match {
-		    	    case (_ : HorzSeam) => new SeamMap((repairHorzSeamLinks(nodes, neighbors), newUpperLeft))
-		    	    case (_ : VertSeam) => new SeamMap((repairVertSeamLinks(nodes, neighbors), newUpperLeft))
+		    	    case (_ : HorzSeam) => new SeamMap(imgUtils, (repairHorzSeamLinks(nodes, neighbors), newUpperLeft))
+		    	    case (_ : VertSeam) => new SeamMap(imgUtils, (repairVertSeamLinks(nodes, neighbors), newUpperLeft))
 
 		    	  }
 		      }
@@ -544,7 +545,7 @@ private object Factory {
 	  val width = getWidth(upperLeft, 1)
 	  val height = getHeight(upperLeft, 1)
 	  
-	  val img = ImageUtils.DEFAULT.createImage(width, height)
+	  val img = imgUtils.createImage(width, height)
 	  
 	  def setRowItem(node : Node, x : Int, y : Int) : Unit = {
 	    img.setColor(x, y, node.color)
@@ -637,7 +638,7 @@ private object Factory {
       val height = Dstruct(0).length
 	  doCheck(Dstruct, height, 0)
 	  
-	  val img = ImageUtils.DEFAULT.createImage(Dstruct.length, height)
+	  val img = imgUtils.createImage(Dstruct.length, height)
 	  
 	  writeToImage(img, Nil, 0, height, -1, Dstruct)
 	  

@@ -1,4 +1,4 @@
-package com.gdicristofaro.seamcarve
+package com.gdicristofaro.seamcarve.core
 
 // values range from 0 - 255
 class Color(val red : Integer, val green : Integer, val blue : Integer) {
@@ -65,9 +65,4 @@ trait ImageUtils {
   }
   
   def createAnimMovie(imgs : Array[ImagePointer]) : Movie
-}
-
-object ImageUtils {
-  	// initially set at runtime
-	var DEFAULT : ImageUtils = null
 }

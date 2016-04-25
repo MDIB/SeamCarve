@@ -1,18 +1,18 @@
 package com.gdicristofaro.seamcarve.jvm
 
 import java.awt.image.BufferedImage
-import com.gdicristofaro.seamcarve.Image
-import com.gdicristofaro.seamcarve.Color
-import com.gdicristofaro.seamcarve.ImagePointer
+import com.gdicristofaro.seamcarve.core.Image
+import com.gdicristofaro.seamcarve.core.Color
+import com.gdicristofaro.seamcarve.core.ImagePointer
 import javax.imageio.ImageIO
-import com.gdicristofaro.seamcarve.ImageUtils
-import com.gdicristofaro.seamcarve.Movie
+import com.gdicristofaro.seamcarve.core.ImageUtils
+import com.gdicristofaro.seamcarve.core.Movie
 import java.awt.image.ImageObserver
 import java.awt.AlphaComposite
-import com.gdicristofaro.seamcarve.ImgPosition
-import com.gdicristofaro.seamcarve.TopLeftPosition
+import com.gdicristofaro.seamcarve.core.ImgPosition
+import com.gdicristofaro.seamcarve.core.TopLeftPosition
 import java.awt.RenderingHints
-import com.gdicristofaro.seamcarve.SeamConstants
+import com.gdicristofaro.seamcarve.core.SeamConstants
 import java.io.File
 
 
@@ -97,7 +97,11 @@ class JVMImageUtils extends ImageUtils {
   def createImagePointer(img: Image): ImagePointer = {
     new JVMImgPointer(img.asInstanceOf[JVMImage].bufferedImage)
   }
-
+  
+  def readImg(str : String) : JVMImage = new JVMImage(ImageIO.read(new File(str)))
+  
+  def writeImg(image : JVMImage, format : String, path : String) =
+		ImageIO.write(image.bufferedImage, "png", new File(path))
 				
   def generateFadeInImages(background: Image, foreground: Image, frames: Integer): Array[ImagePointer] = {
 		if (frames < 1)

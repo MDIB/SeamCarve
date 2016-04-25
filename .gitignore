@@ -20,6 +20,9 @@ project/plugins/project/
 .settings/*
 build/*
 bin/*
+node_modules/*
+project/target/*
+project/project/target/*
 *.DS_Store
 *.jar
 .cache-main

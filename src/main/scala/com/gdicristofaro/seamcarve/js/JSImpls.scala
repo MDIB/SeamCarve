@@ -1,13 +1,13 @@
-package com.gdicristofaro.seamcarve.jvm
+package com.gdicristofaro.seamcarve.js
 
-import com.gdicristofaro.seamcarve.Image
-import com.gdicristofaro.seamcarve.Color
-import com.gdicristofaro.seamcarve.ImagePointer
-import com.gdicristofaro.seamcarve.ImageUtils
-import com.gdicristofaro.seamcarve.Movie
-import com.gdicristofaro.seamcarve.ImgPosition
-import com.gdicristofaro.seamcarve.TopLeftPosition
-import com.gdicristofaro.seamcarve.SeamConstants
+import com.gdicristofaro.seamcarve.core.Image
+import com.gdicristofaro.seamcarve.core.Color
+import com.gdicristofaro.seamcarve.core.ImagePointer
+import com.gdicristofaro.seamcarve.core.ImageUtils
+import com.gdicristofaro.seamcarve.core.Movie
+import com.gdicristofaro.seamcarve.core.ImgPosition
+import com.gdicristofaro.seamcarve.core.TopLeftPosition
+import com.gdicristofaro.seamcarve.core.SeamConstants
 import org.scalajs.dom.html.Canvas
 import org.scalajs.dom.raw.CanvasRenderingContext2D
 import org.scalajs.dom.raw.ImageData
