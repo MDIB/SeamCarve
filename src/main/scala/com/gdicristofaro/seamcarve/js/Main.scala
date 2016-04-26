@@ -4,7 +4,6 @@ import com.gdicristofaro.seamcarve.core.Resizer
 import com.gdicristofaro.seamcarve.core.Image
 import org.scalajs.dom.html
 import com.gdicristofaro.seamcarve.core.EnergyMethodE1
-import com.gdicristofaro.seamcarve.core.Movie
 import scala.scalajs.js.annotation.JSExport
 import scala.scalajs.js
 import scala.scalajs.js.annotation.ScalaJSDefined
@@ -63,7 +62,10 @@ class Main(resizer : Resizer) {
 	/**
 	 * @return		returns Files pointing to images animating the resize
 	 */
-	//def getAnimPics = resizer.getAnimPics.map { imgPtr => imgPtr.load.asInstanceOf[JSImage].canvas };
-	
-	//def getAnimMovie : Movie = resizer.getAnimMovie
+	@JSExport
+	def getAnimPics = {
+    val jsArr = new js.Array[html.Canvas]
+    resizer.getAnimPics.map { imgPtr => jsArr.push(imgPtr.load.asInstanceOf[JSImage].canvas) }
+    jsArr
+  }
 }

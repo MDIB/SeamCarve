@@ -58,8 +58,6 @@ class Resizer(imgUtils : ImageUtils, img: Image, targetHeight : Integer, targetW
 			 */
 			def getAnimPics = carver.getAnimPics;
 
-			def getAnimMovie : Movie = imgUtils.createAnimMovie(getAnimPics)
-
 
 			/**
 			 * @return		returns the SeamCarve associated with the image

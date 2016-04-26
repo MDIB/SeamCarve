@@ -6,7 +6,6 @@ import com.gdicristofaro.seamcarve.core.Color
 import com.gdicristofaro.seamcarve.core.ImagePointer
 import javax.imageio.ImageIO
 import com.gdicristofaro.seamcarve.core.ImageUtils
-import com.gdicristofaro.seamcarve.core.Movie
 import java.awt.image.ImageObserver
 import java.awt.AlphaComposite
 import com.gdicristofaro.seamcarve.core.ImgPosition
@@ -14,6 +13,9 @@ import com.gdicristofaro.seamcarve.core.TopLeftPosition
 import java.awt.RenderingHints
 import com.gdicristofaro.seamcarve.core.SeamConstants
 import java.io.File
+import com.xuggle.mediatool.ToolFactory
+import com.xuggle.xuggler.ICodec
+import java.util.concurrent.TimeUnit
 
 
 
@@ -86,10 +88,6 @@ class JVMImgPointer(buffImg : BufferedImage) extends ImagePointer {
 
 
 class JVMImageUtils extends ImageUtils {
-  def createAnimMovie(imgs: Array[ImagePointer]): Movie = {
-    ???
-  }
-
   def createImage(width: Integer, height: Integer): Image = {
     new JVMImage(new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR))
   }
@@ -165,6 +163,29 @@ class JVMImageUtils extends ImageUtils {
 		g.drawImage(buffimg, 0, 0, width, height, 0, 0, w, h, null)
 		g.dispose
 		new JVMImage(dimg)
+  }
+  
+  // based on: https://examples.javacodegeeks.com/desktop-java/xuggler/create-video-from-image-frames-with-xuggler/
+	def outputVideo(imgs : Array[ImagePointer], fps : Integer, filePath : String) {
+    if (imgs.length == 0)
+      return
+    
+    // the xuggle writer
+		val writer = ToolFactory.makeWriter(filePath)
+
+		val img0 = imgs(0).load.asInstanceOf[JVMImage].bufferedImage
+		
+		// set up the video stream
+		writer.addVideoStream(0, 0, ICodec.ID.CODEC_ID_MPEG4, img0.getWidth, img0.getHeight)
+
+		for (index <- 0 until imgs.length) {
+		  // add image at right location
+		  val img = imgs(index).load.asInstanceOf[JVMImage].bufferedImage
+			writer.encodeVideo(0, img, ((1000.toDouble / fps) * index).toInt, TimeUnit.MILLISECONDS)
+		}
+    
+		// tell the writer to close and write the trailer if  needed
+  	writer.close()
   }
 }
 

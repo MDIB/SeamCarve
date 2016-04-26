@@ -18,9 +18,11 @@ unmanagedSourceDirectories in Compile <<= baseDirectory(base =>
   Nil
 )
 
+resolvers += "xuggle repo" at "http://xuggle.googlecode.com/svn/trunk/repo/share/java/"
+
 libraryDependencies ++= Seq(
     "org.scala-js" %%% "scalajs-dom" % "0.9.0",
     "com.lihaoyi" %%% "utest" % "0.3.0" % "test",
     "commons-cli" % "commons-cli" % "1.3.1",
-    "commons-codec" % "commons-codec" % "1.10"
+    "xuggle" % "xuggle-xuggler" % "5.2"
 )

@@ -38,9 +38,6 @@ abstract class ImgPosition
 case class TopLeftPosition() extends ImgPosition
 case class CenterPosition() extends ImgPosition
 
-trait Movie {
-  
-}
 
 trait ImageUtils {
   def createImage(width : Integer, height : Integer) : Image
@@ -63,6 +60,4 @@ trait ImageUtils {
     
     arr
   }
-  
-  def createAnimMovie(imgs : Array[ImagePointer]) : Movie
 }

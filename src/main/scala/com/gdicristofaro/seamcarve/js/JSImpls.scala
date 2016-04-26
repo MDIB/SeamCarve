@@ -4,7 +4,6 @@ import com.gdicristofaro.seamcarve.core.Image
 import com.gdicristofaro.seamcarve.core.Color
 import com.gdicristofaro.seamcarve.core.ImagePointer
 import com.gdicristofaro.seamcarve.core.ImageUtils
-import com.gdicristofaro.seamcarve.core.Movie
 import com.gdicristofaro.seamcarve.core.ImgPosition
 import com.gdicristofaro.seamcarve.core.TopLeftPosition
 import com.gdicristofaro.seamcarve.core.SeamConstants
@@ -69,10 +68,6 @@ class JSImgPointer(image : JSImage) extends ImagePointer {
 
 
 class JSImageUtils extends ImageUtils {
-  def createAnimMovie(imgs: Array[ImagePointer]): Movie = {
-    ???
-  }
-
   def createImage(width: Integer, height: Integer): Image = new JSImage(JSCommon.createCanvas(width, height))
 
   def createImagePointer(img: Image): ImagePointer = new JSImgPointer(img.asInstanceOf[JSImage])

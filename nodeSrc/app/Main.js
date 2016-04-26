@@ -16,6 +16,7 @@ import AvVideocam from 'material-ui/svg-icons/av/Videocam';
 import ImageBurstMode from 'material-ui/svg-icons/image/burst-mode';
 import Dropzone from 'react-dropzone';
 import transitions from 'material-ui/styles/transitions';
+import Whammy from 'whammy/whammy'
 
 const styles = {
   card: {
@@ -138,10 +139,20 @@ class Main extends React.Component {
     img.onload = function () {
       ctx.drawImage(img, 0, 0);
       var seamCarver = SeamCarverFactory().getCarver(canvas);
-      that.setState({renderedImageSrc: seamCarver.getFinalImage().toDataURL() });
-
+      that.setState({renderedImageSrc: seamCarver.getFinalImage.toDataURL() });
+      that.setState({energyImageSrc: seamCarver.getEnergyImage.toDataURL() });
+      that.setState({makingOfSrc: that.createVideo(seamCarver.getAnimPics) });
     }
     img.src = imgSrc;
+  }
+
+  createVideo(imgs) {
+    var frameRate = 30;
+    var encoder = new Whammy.Video(frameRate);
+    imgs.forEach(function(canvas) { encoder.add(canvas); });
+    var output = encoder.compile();
+    // the video url
+    return (window.webkitURL || window.URL).createObjectURL(output);
   }
 
   onDrop(files) {
@@ -265,9 +276,9 @@ class Main extends React.Component {
           title="The Whole Process"
           actions={makingOfButton}
           onRequestClose={this.hideMakingOf} >
-          <video width="400" controls>
+          <video controls>
             {/* TODO change video/mp4 based on what you get */}
-            <source src={this.state.makingOfSrc} type="video/mp4" />
+            <source src={this.state.makingOfSrc} />
             Your browser does not support HTML5 video.
           </video>
         </Dialog>

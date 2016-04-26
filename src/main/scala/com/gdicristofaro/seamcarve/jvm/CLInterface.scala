@@ -113,9 +113,7 @@ object CLInterface {
 
 			//burn video if asked for one
 			if (cmd.hasOption("video")) {
-			  ???
-			  // movie writing needs to be determined
-				// Utils.createMovie(resizer.getAnimPics, SeamConstants.DEFAULT_FPS, new File(cmd.getOptionValue("video")))
+			  imgUtils.outputVideo(resizer.getAnimPics, SeamConstants.DEFAULT_FPS, cmd.getOptionValue("video"))
 			}
 
 
