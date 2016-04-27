@@ -1,13 +1,6 @@
 package com.gdicristofaro.seamcarve.core
 
-abstract class EnergyMethod
-case class EnergyMethodE1() extends EnergyMethod
-case class EnergyMethodHoG() extends EnergyMethod
-
-
-class EnergyRetriever(imgUtils: ImageUtils, img: Image, emeth: EnergyMethod) {
-  
-  def this(imgUtils: ImageUtils, img: Image) = this(imgUtils, img, SeamConstants.DEFAULT_ENERGY_METHOD)
+class EnergyRetriever(imgUtils: ImageUtils, img: Image) {
   
     
   /**

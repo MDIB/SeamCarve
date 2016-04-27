@@ -137,7 +137,7 @@ object DynamicProgramming {
  * @param imageEnlarge		whether or not to enlarge the image using this process
  */
 class SeamCarve (imgUtils : ImageUtils, img : Image, maxEnergy : Double, 
-    vertShrinkNum: Int, horzShrinkNum: Int, emeth: EnergyMethod, imageEnlarge : Boolean) {
+    vertShrinkNum: Int, horzShrinkNum: Int, imageEnlarge : Boolean) {
   
 	/**
 	 * default constructor for SeamCarve where all defaults are assumed
@@ -145,10 +145,10 @@ class SeamCarve (imgUtils : ImageUtils, img : Image, maxEnergy : Double,
 	 */
 	def this(imgUtils : ImageUtils, img : Image) = this(imgUtils, img, 1,
 	    (SeamConstants.SEAM_DEFAULT_MAX_VERT_PROPORTION * img.height).toInt, 
-	    (SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.width).toInt, new EnergyMethodE1, false)
+	    (SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.width).toInt, false)
 	
 	
-	val eget = new EnergyRetriever(imgUtils, img, emeth)
+	val eget = new EnergyRetriever(imgUtils, img)
 	val emap = eget.getEnergyMap
 	
 	val originalGraph = new SeamMap(imgUtils, emap, img)

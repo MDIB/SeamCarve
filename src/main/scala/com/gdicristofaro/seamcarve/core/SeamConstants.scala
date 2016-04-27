@@ -8,9 +8,6 @@ object SeamConstants {
 	val SEAM_DEFAULT_MAX_HORZ_PROPORTION = 0.1
 	val SEAM_DEFAULT_MAX_VERT_PROPORTION = 0.1
 	
-	//default energy method
-	val DEFAULT_ENERGY_METHOD = new EnergyMethodE1()
-	
 	//how large the original image can be
 	val MAX_ORIG_IMAGE_WIDTH = 1000
 	val MAX_ORIG_IMAGE_HEIGHT = 1000

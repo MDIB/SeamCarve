@@ -20,27 +20,27 @@ object Resizer {
 }
 
 class Resizer(imgUtils : ImageUtils, img: Image, targetHeight : Integer, targetWidth : Integer, 
-		maxEnergy : Double, horzSeamNum : Integer, vertSeamNum : Integer, eMeth : EnergyMethod, seamEnlarge : Boolean) {
+		maxEnergy : Double, horzSeamNum : Integer, vertSeamNum : Integer, seamEnlarge : Boolean) {
 
 	//resize picture to proper proportions (if possible)
-	val carver = new SeamCarve(imgUtils, img, maxEnergy, vertSeamNum, horzSeamNum, eMeth, seamEnlarge)
+	val carver = new SeamCarve(imgUtils, img, maxEnergy, vertSeamNum, horzSeamNum, seamEnlarge)
 
 
 			def this(imgUtils : ImageUtils, img : Image, maxEnergy : Double, horzSeamNum : Integer, vertSeamNum : Integer,
-					eMeth : EnergyMethod, seamEnlarge : Boolean) = 
-					this(imgUtils, img, null, null, maxEnergy, horzSeamNum, vertSeamNum, eMeth, seamEnlarge)
+					seamEnlarge : Boolean) = 
+					this(imgUtils, img, null, null, maxEnergy, horzSeamNum, vertSeamNum, seamEnlarge)
 
 			def this(imgUtils : ImageUtils, img : Image) = 
 			this(imgUtils, img, SeamConstants.SEAM_DEFAULT_MAX_SCORE, 
 					(SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.width).toInt, 
 					(SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.height).toInt,
-					SeamConstants.DEFAULT_ENERGY_METHOD, false)
+					false)
 
-			def this(imgUtils : ImageUtils, img : Image, heightToWidthRatio : Double, eMeth : EnergyMethod, seamEnlarge : Boolean) = 
+			def this(imgUtils : ImageUtils, img : Image, heightToWidthRatio : Double, seamEnlarge : Boolean) = 
 			this(imgUtils, img, SeamConstants.SEAM_DEFAULT_MAX_SCORE, 
 					Resizer.horzSeamsToRemove(img.height, img.width, heightToWidthRatio, seamEnlarge), 
 					Resizer.vertSeamsToRemove(img.height, img.width, heightToWidthRatio, seamEnlarge), 
-					SeamConstants.DEFAULT_ENERGY_METHOD, seamEnlarge)	
+					seamEnlarge)	
 
 			/**
 			 * @return		returns the finished image
