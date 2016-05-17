@@ -15,7 +15,7 @@ import org.scalajs.dom.raw.HTMLCanvasElement
 
 
 object JSCommon {
-  def createCanvas(width : Integer, height : Integer) = {
+  def createCanvas(width : Int, height : Int) = {
     val newCanvas = document.createElement("canvas").asInstanceOf[HTMLCanvasElement]
     newCanvas.width = width
     newCanvas.height = height
@@ -36,17 +36,17 @@ class JSImage(val canvas : Canvas) extends Image {
     new JSImage(newCanvas)
   }
 
-  val height: Integer = canvas.height
+  val height: Int = canvas.height
 
-  val width: Integer = canvas.width
+  val width: Int = canvas.width
     
-  def getColor(x: Integer, y: Integer): Color = {
+  def getColor(x: Int, y: Int): Color = {
     val pixel = ctx.getImageData(x.toDouble, y.toDouble, 1, 1).data
     new Color(pixel(0), pixel(1), pixel(2))
   }
 
   
-  def setColor(x: Integer, y: Integer, pixel: Color) = {
+  def setColor(x: Int, y: Int, pixel: Color) = {
     // img data is an array of values (0 - 255) where every 4 values represents 1 pixel, row 2 begins at 4 * width
     val offset = ((y * (canvas.width * 4)) + (x*4))
     
@@ -68,13 +68,13 @@ class JSImgPointer(image : JSImage) extends ImagePointer {
 
 
 class JSImageUtils extends ImageUtils {
-  def createImage(width: Integer, height: Integer): Image = new JSImage(JSCommon.createCanvas(width, height))
+  def createImage(width: Int, height: Int): Image = new JSImage(JSCommon.createCanvas(width, height))
 
   def createImagePointer(img: Image): ImagePointer = new JSImgPointer(img.asInstanceOf[JSImage])
 
 
 				
-  def generateFadeInImages(background: Image, foreground: Image, frames: Integer): Array[ImagePointer] = {
+  def generateFadeInImages(background: Image, foreground: Image, frames: Int): Array[ImagePointer] = {
 		if (frames < 1)
 			throw new IllegalArgumentException("frames amount needs to be greater than 0")
 		
@@ -103,7 +103,7 @@ class JSImageUtils extends ImageUtils {
 		ptrs
   }
 
-  def giveEdges(orig: Image, background: Color, newHeight: Integer, newWidth: Integer, position: ImgPosition): Image = {
+  def giveEdges(orig: Image, background: Color, newHeight: Int, newWidth: Int, position: ImgPosition): Image = {
 		if (orig.height > newHeight || orig.width > newWidth)
 			throw new IllegalArgumentException("dimensions of original image are greater than new image dimensions")
 		
@@ -125,13 +125,23 @@ class JSImageUtils extends ImageUtils {
 		new JSImage(toReturn)
   }
 
-  def resizeImage(img: Image, width: Integer, height: Integer): Image = {
+  def resizeImage(img: Image, width: Int, height: Int): Image = {
 		val w = img.width
 		val h = img.height
 		val canvas = img.asInstanceOf[JSImage].canvas
 		val newCanvas = JSCommon.createCanvas(width, height)
 		val ctx = JSCommon.getCtx(newCanvas)
 		ctx.drawImage(canvas, 0, 0, width.toDouble, height.toDouble)
+		new JSImage(newCanvas)
+  }
+
+  def copyImg(img: Image): Image = {
+    val w = img.width
+		val h = img.height
+		val canvas = img.asInstanceOf[JSImage].canvas
+		val newCanvas = JSCommon.createCanvas(w, h)
+		val ctx = JSCommon.getCtx(newCanvas)
+		ctx.drawImage(canvas, 0, 0)
 		new JSImage(newCanvas)
   }
 }

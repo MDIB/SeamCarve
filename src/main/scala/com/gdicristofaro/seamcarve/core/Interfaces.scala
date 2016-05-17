@@ -1,8 +1,8 @@
 package com.gdicristofaro.seamcarve.core
 
 // values range from 0 - 255
-class Color(val red : Integer, val green : Integer, val blue : Integer) {
-  private def _colorCheck(col : Integer, name : String) {
+class Color(val red : Int, val green : Int, val blue : Int) {
+  private def _colorCheck(col : Int, name : String) {
     if (col < 0 || col > 255)
       throw new IllegalArgumentException(name + " must be [0,255] but was " + col)
   }
@@ -20,10 +20,10 @@ object Color {
 
 
 trait Image {
-  val width : Integer
-  val height : Integer
-  def getColor(x : Integer, y : Integer) : Color
-  def setColor(x : Integer, y : Integer, pixel : Color)
+  val width : Int
+  val height : Int
+  def getColor(x : Int, y : Int) : Color
+  def setColor(x : Int, y : Int, pixel : Color)
   
   def copy : Image
 }
@@ -40,18 +40,21 @@ case class CenterPosition() extends ImgPosition
 
 
 trait ImageUtils {
-  def createImage(width : Integer, height : Integer) : Image
+  def createImage(width : Int, height : Int) : Image
   
-  def generateFadeInImages(background : Image, foreground : Image, frames : Integer) : Array[ImagePointer]
+  // creates a copy of an image
+  def copyImg(img : Image) : Image
   
-  def resizeImage(img : Image, width : Integer, height : Integer) : Image
+  def generateFadeInImages(background : Image, foreground : Image, frames : Int) : Array[ImagePointer]
+  
+  def resizeImage(img : Image, width : Int, height : Int) : Image
   
   def createImagePointer(img : Image) : ImagePointer
   
 	//puts image in top left hand corner of new box
-	def giveEdges(orig : Image, background : Color, newHeight : Integer, newWidth : Integer, position : ImgPosition) : Image
+	def giveEdges(orig : Image, background : Color, newHeight : Int, newWidth : Int, position : ImgPosition) : Image
 	
-	def createManyImagePointers(img : Image, num : Integer) : Array[ImagePointer] = {
+	def createManyImagePointers(img : Image, num : Int) : Array[ImagePointer] = {
     val arr = new Array[ImagePointer](num)
     
     for(i <- 0 to (num - 1)) {

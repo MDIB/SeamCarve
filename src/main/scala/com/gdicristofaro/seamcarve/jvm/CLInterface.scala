@@ -11,7 +11,6 @@ import org.apache.commons.cli.CommandLine
 import org.apache.commons.cli.CommandLineParser
 import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
-import com.gdicristofaro.seamcarve.core.EnergyMethod
 import javax.imageio.ImageIO
 
 
@@ -67,7 +66,6 @@ object CLInterface {
 				resizer = new Resizer(imgUtils,
 						img,
 						cmd.getOptionValue("heightToWidth").toDouble,
-						SeamConstants.DEFAULT_ENERGY_METHOD,
 						if (cmd.hasOption("seamEnlarge")) { cmd.getOptionValue("heightToWidth").toBoolean } else { false })
 			}
 			//if has targetHeight or targetWidth, take that route
@@ -90,7 +88,6 @@ object CLInterface {
 						  else (SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.width).toInt, 
 						if (cmd.hasOption("horzNum"))  cmd.getOptionValue("vertNum").toInt 
 						  else (SeamConstants.SEAM_DEFAULT_MAX_VERT_PROPORTION * img.height).toInt,
-						SeamConstants.DEFAULT_ENERGY_METHOD,
 						if (cmd.hasOption("seamEnlarge"))  cmd.getOptionValue("heightToWidth").toBoolean 
 						  else false)
 			}
@@ -104,7 +101,6 @@ object CLInterface {
 						  else (SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.width).toInt, 
 						if (cmd.hasOption("horzNum")) cmd.getOptionValue("vertNum").toInt
 						  else (SeamConstants.SEAM_DEFAULT_MAX_VERT_PROPORTION * img.height).toInt,
-						SeamConstants.DEFAULT_ENERGY_METHOD,
 						if (cmd.hasOption("seamEnlarge")) cmd.getOptionValue("heightToWidth").toBoolean
 						  else false)				
 			}

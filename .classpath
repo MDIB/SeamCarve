@@ -1,17 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-  <classpathentry kind="src" path="src/main/scala/com/gdicristofaro/seamcarve/js"/>
-  <classpathentry kind="src" path="src/main/scala/com/gdicristofaro/seamcarve/jvm"/>
-  <classpathentry kind="src" path="src/main/scala/com/gdicristofaro/seamcarve/core"/>
-  <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.scala-js/scalajs-library_2.11/jars/scalajs-library_2.11-0.6.8.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.scala-js/scalajs-dom_sjs0.6_2.11/jars/scalajs-dom_sjs0.6_2.11-0.9.0.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/commons-cli/commons-cli/jars/commons-cli-1.3.1.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/xuggle/xuggle-xuggler/jars/xuggle-xuggler-5.2.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.6.4.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.0.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.0.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/com.lihaoyi/utest_sjs0.6_2.11/jars/utest_sjs0.6_2.11-0.3.0.jar"/>
-  <classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.scala-js/scalajs-test-interface_2.11/jars/scalajs-test-interface_2.11-0.6.0.jar"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src/main/scala/com/gdicristofaro/seamcarve/js"/>
+	<classpathentry kind="src" path="src/main/scala/com/gdicristofaro/seamcarve/jvm"/>
+	<classpathentry kind="src" path="src/main/scala/com/gdicristofaro/seamcarve/core"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.scala-js/scalajs-library_2.11/jars/scalajs-library_2.11-0.6.8.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.scala-js/scalajs-dom_sjs0.6_2.11/jars/scalajs-dom_sjs0.6_2.11-0.9.0.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/commons-cli/commons-cli/jars/commons-cli-1.3.1.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/xuggle/xuggle-xuggler/jars/xuggle-xuggler-5.2.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/com.lihaoyi/utest_sjs0.6_2.11/jars/utest_sjs0.6_2.11-0.3.0.jar"/>
+	<classpathentry kind="lib" path="/Users/gregdicristofaro/.ivy2/cache/org.scala-js/scalajs-test-interface_2.11/jars/scalajs-test-interface_2.11-0.6.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

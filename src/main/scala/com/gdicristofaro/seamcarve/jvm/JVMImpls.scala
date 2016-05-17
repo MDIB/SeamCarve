@@ -27,27 +27,27 @@ class JVMImage(val bufferedImage : BufferedImage) extends Image {
     new JVMImage(newImg)
   }
 
-  val height: Integer = bufferedImage.getHeight
+  val height: Int = bufferedImage.getHeight
 
-  val width: Integer = bufferedImage.getWidth
+  val width: Int = bufferedImage.getWidth
   
   
-  private def parse(combined : Integer, shift : Integer) : Integer = {
+  private def parse(combined : Int, shift : Int) : Int = {
     (combined >>> shift) & 0xFF
   }
     
-  def getColor(x: Integer, y: Integer): Color = {
+  def getColor(x: Int, y: Int): Color = {
     val col = bufferedImage.getRGB(x, y)
-    new Color(parse(col, 4), parse(col, 2), parse(col, 0))
+    new Color(parse(col, 16), parse(col, 8), parse(col, 0))
   }
 
   
-  private def shifted(num : Integer, shift : Integer) : Integer = {
+  private def shifted(num : Int, shift : Int) : Int = {
     (num & 0xFF) << shift
   }
   
-  def setColor(x: Integer, y: Integer, pixel: Color) = {
-    val rgb = shifted(0xFF, 6) | shifted(pixel.red, 4) | shifted(pixel.green, 2) | shifted(pixel.blue, 0)
+  def setColor(x: Int, y: Int, pixel: Color) = {
+    val rgb = shifted(0xFF,24) | shifted(pixel.red, 16) | shifted(pixel.green, 8) | shifted(pixel.blue, 0)
     bufferedImage.setRGB(x, y, rgb)
   }
 }
@@ -88,8 +88,10 @@ class JVMImgPointer(buffImg : BufferedImage) extends ImagePointer {
 
 
 class JVMImageUtils extends ImageUtils {
-  def createImage(width: Integer, height: Integer): Image = {
-    new JVMImage(new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR))
+  private def getBufferedImg(width: Int, height: Int) = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
+  
+  def createImage(width: Int, height: Int): Image = {
+    new JVMImage(getBufferedImg(width, height))
   }
 
   def createImagePointer(img: Image): ImagePointer = {
@@ -101,7 +103,7 @@ class JVMImageUtils extends ImageUtils {
   def writeImg(image : JVMImage, format : String, path : String) =
 		ImageIO.write(image.bufferedImage, "png", new File(path))
 				
-  def generateFadeInImages(background: Image, foreground: Image, frames: Integer): Array[ImagePointer] = {
+  def generateFadeInImages(background: Image, foreground: Image, frames: Int): Array[ImagePointer] = {
 		if (frames < 1)
 			throw new IllegalArgumentException("frames amount needs to be greater than 0")
 		
@@ -113,7 +115,7 @@ class JVMImageUtils extends ImageUtils {
 		
 		for (i <- 0 until frames) {
 		  val foregroundAmount = (i.toFloat) / (frames - 1)
-		  val thisImg = new BufferedImage(background.width, background.height, BufferedImage.TYPE_3BYTE_BGR)
+		  val thisImg = getBufferedImg(background.width, background.height)
 		  val g = thisImg.createGraphics
 		
 		  val observer : ImageObserver = null
@@ -131,12 +133,12 @@ class JVMImageUtils extends ImageUtils {
 		ptrs
   }
 
-  def giveEdges(orig: Image, background: Color, newHeight: Integer, newWidth: Integer, position: ImgPosition): Image = {
+  def giveEdges(orig: Image, background: Color, newHeight: Int, newWidth: Int, position: ImgPosition): Image = {
 		if (orig.height > newHeight || orig.width > newWidth)
 			throw new IllegalArgumentException("dimensions of original image are greater than new image dimensions")
 		
 		
-		val toReturn = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_3BYTE_BGR)
+		val toReturn = getBufferedImg(newWidth, newHeight)
 		val g = toReturn.createGraphics()
 		
 		if (position == TopLeftPosition()) {
@@ -152,7 +154,7 @@ class JVMImageUtils extends ImageUtils {
 		new JVMImage(toReturn)
   }
 
-  def resizeImage(img: Image, width: Integer, height: Integer): Image = {
+  def resizeImage(img: Image, width: Int, height: Int): Image = {
 		val w = img.width
 		val h = img.height
 		val buffimg = img.asInstanceOf[JVMImage].bufferedImage
@@ -165,8 +167,21 @@ class JVMImageUtils extends ImageUtils {
 		new JVMImage(dimg)
   }
   
+  def copyImg(img: Image): Image = {
+		val w = img.width
+		val h = img.height
+		val buffimg = img.asInstanceOf[JVMImage].bufferedImage
+		val dimg = new BufferedImage(w, h, buffimg.getType)
+		val g = dimg.createGraphics
+		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, 
+				RenderingHints.VALUE_INTERPOLATION_BILINEAR)
+		g.drawImage(buffimg, 0, 0, w, h, null)
+		g.dispose
+		new JVMImage(dimg)
+  }
+  
   // based on: https://examples.javacodegeeks.com/desktop-java/xuggler/create-video-from-image-frames-with-xuggler/
-	def outputVideo(imgs : Array[ImagePointer], fps : Integer, filePath : String) {
+	def outputVideo(imgs : Array[ImagePointer], fps : Int, filePath : String) {
     if (imgs.length == 0)
       return
     

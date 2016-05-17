@@ -3,7 +3,6 @@ package com.gdicristofaro.seamcarve.js
 import com.gdicristofaro.seamcarve.core.Resizer
 import com.gdicristofaro.seamcarve.core.Image
 import org.scalajs.dom.html
-import com.gdicristofaro.seamcarve.core.EnergyMethodE1
 import scala.scalajs.js.annotation.JSExport
 import scala.scalajs.js
 import scala.scalajs.js.annotation.ScalaJSDefined
@@ -11,7 +10,6 @@ import scala.scalajs.js.annotation.ScalaJSDefined
 
 object ResizerUtils {
   val imgUtils = new JSImageUtils
-  val energyMethod = new EnergyMethodE1
 }
 
 
@@ -29,13 +27,13 @@ object Main {
   def getCarver(image: html.Canvas, targetHeight : Integer, targetWidth : Integer, 
     maxEnergy : Double, horzSeamNum : Integer, vertSeamNum : Integer, seamEnlarge : Boolean) =
       new Main(new Resizer(ResizerUtils.imgUtils, new JSImage(image), targetHeight, targetWidth, 
-        maxEnergy, horzSeamNum, vertSeamNum, ResizerUtils.energyMethod, seamEnlarge))
+        maxEnergy, horzSeamNum, vertSeamNum, seamEnlarge))
 
   @JSExport
   def getCarver(canvas : html.Canvas, maxEnergy : Double, horzSeamNum : Integer, 
       vertSeamNum : Integer, seamEnlarge : Boolean) =
         new Main(new Resizer(ResizerUtils.imgUtils, new JSImage(canvas), maxEnergy, 
-          horzSeamNum, vertSeamNum, ResizerUtils.energyMethod, seamEnlarge))
+          horzSeamNum, vertSeamNum, seamEnlarge))
   
   @JSExport
   def getCarver(canvas : html.Canvas) = {
@@ -45,7 +43,7 @@ object Main {
   @JSExport
   def getCarver(canvas : html.Canvas, heightToWidthRatio : Double, seamEnlarge : Boolean) =
     new Main(new Resizer(
-      ResizerUtils.imgUtils, new JSImage(canvas), heightToWidthRatio, ResizerUtils.energyMethod, seamEnlarge))
+      ResizerUtils.imgUtils, new JSImage(canvas), heightToWidthRatio, seamEnlarge))
 
 }
 

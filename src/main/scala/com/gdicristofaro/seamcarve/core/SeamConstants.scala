@@ -5,9 +5,10 @@ object SeamConstants {
 	val SEAM_DEFAULT_MAX_SCORE = 1d
 	
 	//how much should be removed vertically or horizontally
-	val SEAM_DEFAULT_MAX_HORZ_PROPORTION = 0.1
-	val SEAM_DEFAULT_MAX_VERT_PROPORTION = 0.1
-	
+	val SEAM_DEFAULT_PROPORTION = 0.1
+	val SEAM_DEFAULT_MAX_HORZ_PROPORTION = SEAM_DEFAULT_PROPORTION
+	val SEAM_DEFAULT_MAX_VERT_PROPORTION = SEAM_DEFAULT_PROPORTION
+
 	//how large the original image can be
 	val MAX_ORIG_IMAGE_WIDTH = 1000
 	val MAX_ORIG_IMAGE_HEIGHT = 1000
@@ -15,9 +16,9 @@ object SeamConstants {
 	//how large the resulting image can be
 	val MAX_RESULT_IMAGE_WIDTH = 1000
 	val MAX_RESULT_IMAGE_HEIGHT = 1000
-	
-	
-	/*dictates how much memory an image can take up of free memory 
+
+
+	/*dictates how much memory an image can take up of free memory
 	 (we have to leave room for the energy and seams) */
 	val IMAGE_MAX_MEM_PER = .1
 	
@@ -29,4 +30,9 @@ object SeamConstants {
 	
 	//specifies the default frames per second
 	val DEFAULT_FPS = 32
+	
+	// true if debug
+	val DEBUG = true
+	
+	val DEFAULT_SEAM_COLOR = Color.RED
 }
