@@ -1,7 +1,7 @@
 package com.gdicristofaro.seamcarve.core
 
 import scala.collection.mutable.HashSet
-import scala.collection.Set
+import scala.collection.{mutable, Set}
 import scala.collection.mutable.ListBuffer
 
 
@@ -14,7 +14,7 @@ import scala.collection.mutable.ListBuffer
  * seamSuccessors -> the next set of PixelNodes that use this node as part of their seam
  */
 class PixelNode(
-    val x : Int, val y : Int, 
+    val x : Int, val y : Int,
     val energy : Double,
     var upper : Option[PixelNode], var lower : Option[PixelNode],
     var left : Option[PixelNode], var right : Option[PixelNode],
@@ -43,7 +43,8 @@ class Point(val x : Int, val y : Int) {
     state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
   }
 }
-    
+
+
 // vert seams run up to down
 object VertSeamFuncts {
   def updateNodeEnergy(node : PixelNode) {
@@ -182,7 +183,8 @@ object HorzSeamFuncts {
 object SeamCarver {
 
   /**
-   * seamNode -> pixel node as a part of the seam that needs to be removed
+   * removes seam nodes re-calculating seam energy for any affected remaining nodes
+    * seamNode -> pixel node as a part of the seam that needs to be removed
    * updateNodeEnergy -> re-detertermines appropriate seam predecessor (min energy) and reevaluates total energy
    * removeNode -> repairs connections and removes node
    * returns (set of nodes in this level that need to be reevaluated, points in this seam)
@@ -238,7 +240,7 @@ object SeamCarver {
    * thislevelStart -> the first node in this level
    * 
    */
-  def setLevelEnergy(getNextInLevel : (PixelNode) => Option[PixelNode], prevLevelStart : PixelNode, 
+  def setLevelEnergy(getNextInLevel : (PixelNode) => Option[PixelNode], prevLevelStart : PixelNode,
       thisLevelStart : PixelNode) {
     // determine best option and act accordingly
     var thisNode = thisLevelStart
@@ -278,7 +280,7 @@ object SeamCarver {
       firstNode : PixelNode) : PixelNode = {
     
     // set first level total energy to just the energy
-    var firstLevelNode : Option[PixelNode] = Some(firstNode);
+    var firstLevelNode : Option[PixelNode] = Some(firstNode)
     while (firstLevelNode.isDefined) {
       var extractedNode = firstLevelNode.get
       extractedNode.totSeamEnergy = extractedNode.energy
@@ -302,7 +304,7 @@ object SeamCarver {
     getBestSeam(getNextInLevel, {(p) => None }, prevLevelNode)
   }
   
-  // gets the seam with the least energy
+  // gets the seam with the least energy from a pixel node in last row/column where energy has been determined
   def getBestSeam(
       getNextInLevel : (PixelNode) => Option[PixelNode], 
       getPrevInLevel : (PixelNode) => Option[PixelNode], 
@@ -332,8 +334,8 @@ object SeamCarver {
       nextNode
   }
 
-
-  private def getUpperLeft(starting : PixelNode): PixelNode = {
+  // traverses to upper left node from any node in mapping
+  def getUpperLeft(starting : PixelNode): PixelNode = {
     var toRet = starting
     while (toRet.upper.isDefined)
       toRet = toRet.upper.get
@@ -344,22 +346,24 @@ object SeamCarver {
     toRet
   }
 
-  // returns a tuple of (vertical seams, horizontal seams)
-  def getSeams(upperLeft : PixelNode, maxEnergy : Double, imgWidth : Int, imgHeight : Int, horzSeamNum : Int, vertSeamNum : Int) :
-      (Seq[Set[Point]], Seq[Set[Point]]) = {
+
+
+
+  // maxTotEnergy is the total energy for the seam (avg node energy * img height)
+  // returns a list of seam points and the upper left pixel node of the resulting seam map
+  def getVertSeams(upperLeft : PixelNode, maxTotEnergy : Double, vertSeamNum : Int) :
+  (Seq[Set[Point]], PixelNode) = {
 
     val vertSeams = new ListBuffer[Set[Point]]
 
-    // tracks a node to use for horizontal nodes
+    // tracks a node to use to return
     var startNode = upperLeft
 
     if (vertSeamNum > 0) {
       // max energy refers to average seam node energy so total energy has to be less than image height * maxEnergy
-      val maxVertSeamEnergy = imgHeight * maxEnergy
-
       var bestSeam = VertSeamFuncts.setEnergy(upperLeft)
 
-      while (vertSeams.length < vertSeamNum && bestSeam.totSeamEnergy < maxVertSeamEnergy) {
+      while (vertSeams.length < vertSeamNum && bestSeam.totSeamEnergy < maxTotEnergy) {
         startNode = (bestSeam.left, bestSeam.right) match {
           case (Some(pixNode), _) => pixNode
           case (None, Some(pixNode)) => pixNode
@@ -367,21 +371,30 @@ object SeamCarver {
         }
 
         val (_, seamPts) = VertSeamFuncts.removeSeam(bestSeam)
-        vertSeams+=seamPts
+        vertSeams += seamPts
         bestSeam = VertSeamFuncts.getBestSeam(startNode)
       }
     }
 
+    (vertSeams, getUpperLeft(startNode))
+  }
+
+  // maxTotEnergy is the total energy for the seam (avg node energy * img width)
+  // returns a list of seam points and the upper left pixel node of the resulting seam map
+  def getHorzSeams(upperLeft : PixelNode, maxTotEnergy : Double, horzSeamNum : Int) :
+  (Seq[Set[Point]], PixelNode) = {
+
     val horzSeams = new ListBuffer[Set[Point]]
+
+    // tracks a node to use to return
+    var startNode = upperLeft
 
     if (horzSeamNum > 0) {
       // max energy refers to average seam node energy so total energy has to be less than image height * maxEnergy
-      val maxHorzSeamEnergy = (imgWidth - vertSeams.length) * maxEnergy
 
-      startNode = getUpperLeft(startNode)
       var bestSeam = HorzSeamFuncts.setEnergy(startNode)
 
-      while (horzSeams.length < horzSeamNum && bestSeam.totSeamEnergy < maxHorzSeamEnergy) {
+      while (horzSeams.length < horzSeamNum && bestSeam.totSeamEnergy < maxTotEnergy) {
         val startNode = (bestSeam.upper, bestSeam.lower) match {
           case (Some(pixNode), _) => pixNode
           case (None, Some(pixNode)) => pixNode
@@ -394,7 +407,60 @@ object SeamCarver {
       }
     }
 
-    (vertSeams, horzSeams)
+    (horzSeams, getUpperLeft(startNode))
+  }
+
+
+  /**
+    * creates a new pixelnode mapping doubling points found in vertical seam points
+    *
+    * @param eMap                 the original energy map
+    * @param verticalSeamPoints   the vertical seam points
+    * @return                     (pixelnode in upper left, mapping of new x,y mapped to old x,y
+    */
+  def insertVertSeams(eMap : EnergyMap, verticalSeamPoints : Set[Point]) : (PixelNode, mutable.HashMap[Point, Point]) = {
+    // maps new points in new pixel mapping to original image x,y
+    val mapping = new mutable.HashMap[Point, Point]
+
+    // temporary location for pixel nodes
+    val tempItems = new Array[Array[PixelNode]](eMap.width + (verticalSeamPoints.size / eMap.height))
+
+    // set up the array with empty arrays (so we get 2d array)
+    for (x <- 0 until tempItems.length)
+      tempItems(x) = new Array[PixelNode ](eMap.height)
+
+    // set up the nodes (and mapping)
+    for (y <- 0 until eMap.height) {
+      var newX = 0
+
+      for (x <- 0 until eMap.width) {
+        // place the point in array and set mapping new point => old point
+        tempItems(newX)(y) = new PixelNode(newX, y, eMap.getEnergy(x, y),
+          None, None, None, None, 0, None, new HashSet[PixelNode]())
+        mapping.put(new Point(newX,y), new Point(x,y))
+        newX += 1
+
+        // if contained in vertical seam points, add the point again
+        if (verticalSeamPoints.contains(new Point(x,y))) {
+          tempItems(newX)(y) = new PixelNode(newX, y, eMap.getEnergy(x, y),
+            None, None, None, None, 0, None, new HashSet[PixelNode]())
+          mapping.put(new Point(newX,y), new Point(x,y))
+          newX += 1
+        }
+      }
+    }
+
+    // set up node links
+    for (y <- 0 until eMap.height) {
+      for (x <- 0 until tempItems.length) {
+        tempItems(x)(y).left = if (x == 0) None else Some(tempItems(x - 1)(y))
+        tempItems(x)(y).right = if (x == tempItems.length - 1) None else Some(tempItems(x + 1)(y))
+        tempItems(x)(y).upper = if (y == 0) None else Some(tempItems(x)(y - 1))
+        tempItems(x)(y).lower = if (y == eMap.height - 1) None else Some(tempItems(x)(y + 1))
+      }
+    }
+
+    (tempItems(0)(0), mapping)
   }
 
   
@@ -444,7 +510,7 @@ object SeamCarver {
     // return the best node
     bestNode
   }
-  
+
   // retrieves pixel node mapping based on image energy
   def getPixelNodes(eMap : EnergyMap) : PixelNode = {
     val tempItems = new Array[Array[PixelNode]](eMap.width)
@@ -465,7 +531,7 @@ object SeamCarver {
         tempItems(x)(y).lower = if (y == eMap.height - 1) None else Some(tempItems(x)(y + 1))
       }
     }
-        
+
     tempItems(0)(0)
   }
 }
@@ -479,7 +545,7 @@ object SeamVisualization {
   // check some invariants for remove seam if debug
   private def seamInvariantCheck(
      origImg : Image, newImg : Image,
-     vertSeamPoints : Set[Point], horzSeamPoints : Set[Point], seamRemoval : Boolean) {
+     vertSeamPoints : Set[Point], horzSeamPoints : Set[Point]) {
 
     // check that seams cover whole length of image
      assert(vertSeamPoints.size % origImg.height == 0,
@@ -487,20 +553,11 @@ object SeamVisualization {
 
     // width once vert seams are removed
     val testWidth = origImg.width - (vertSeamPoints.size / origImg.height)
-    val newWidth =
-      if (seamRemoval)
-        testWidth
-      else
-        origImg.width + (vertSeamPoints.size / origImg.height)
-
+    val newWidth = testWidth
     assert(horzSeamPoints.size % testWidth == 0,
       s"there are ${horzSeamPoints.size} horizontal seam points which should have a modulus of 0 with $testWidth")
 
-    val newHeight =
-       if (seamRemoval)
-        origImg.height - (horzSeamPoints.size / testWidth)
-      else
-         origImg.height + (horzSeamPoints.size / testWidth)
+    val newHeight = origImg.height - (horzSeamPoints.size / testWidth)
 
      // make sure image is of right dimensions
      assert(newImg.width == newWidth, s"new image width is ${newImg.width} but the new width should be $newWidth")
@@ -508,44 +565,89 @@ object SeamVisualization {
      assert(newImg.height == newHeight, s"new image height is ${newImg.height} but the new height should be $newHeight")
   }
 
-  def removeInsertSeam(imgUtils : ImageUtils, origImg : Image,
-         vertSeamPoints : Set[Point], horzSeamPoints : Set[Point], seamRemoval : Boolean) : Image = {
+
+  /**
+    * creates an image doubling any points included seams
+    *
+    * @param imgUtils         image utils
+    * @param origImg          original image
+    * @param horzSeamPoints   horizontal seam points corresponding to coordinates of image after vertical
+    *                         seam points have been inserted
+    * @param mapping          mapping of x,y coordinates after vertical seam points have been inserted to
+    *                         original x,y coordinates (if size == 0 then it is assumed that there are no vertical seams)
+    * @return                 the resulting image
+    */
+  def getSeamInsertionImage(imgUtils: ImageUtils, origImg : Image,
+                            horzSeamPoints : Set[Point],
+                            mapping : mutable.HashMap[Point, Point]): Image = {
+
+    val newWidth =
+      if (mapping.size == 0)
+        origImg.width
+      else
+        mapping.size / origImg.height
+
+    val newHeight = origImg.height + horzSeamPoints.size / newWidth
+    val retImg = imgUtils.createImage(newWidth, newHeight)
+
+
+    def setColorFromMapping(xSrc : Int, ySrc : Int, xDest : Int, yDest : Int) {
+      val realSrcPt = mapping.get(new Point(xSrc, ySrc)).get
+      val color = origImg.getColor(realSrcPt.x, realSrcPt.y)
+      retImg.setColor(xDest, yDest, color)
+    }
+
+    def setColorDirect(xSrc : Int, ySrc : Int, xDest : Int, yDest : Int) {
+      retImg.setColor(xDest,yDest,origImg.getColor(xSrc, ySrc))
+    }
+
+    val setColor : (Int,Int,Int,Int) => Unit =
+      if (mapping.size == 0) setColorDirect
+      else setColorFromMapping
+
+    for (x <- 0 until newWidth) {
+      var newY = 0
+
+      for (y <- 0 until origImg.height) {
+        setColor(x,y,x,newY)
+        newY += 1
+
+        if (horzSeamPoints.contains(new Point(x,y))) {
+          setColor(x,y,x,newY)
+          newY += 1
+        }
+      }
+    }
+
+    retImg
+  }
+
+  def getSeamRemovedImage(imgUtils : ImageUtils, origImg : Image,
+                          vertSeamPoints : Set[Point], horzSeamPoints : Set[Point]) : Image = {
 
     // width after seams have been removed
     val testWidth = origImg.width - (vertSeamPoints.size / origImg.height)
 
-    val (newWidth, newHeight) = seamRemoval match {
-      case true =>
-        val newWidth = testWidth
-        val newHeight = origImg.height - (horzSeamPoints.size / newWidth)
-        (newWidth, newHeight)
-      case false =>
-        val newWidth = origImg.width + (vertSeamPoints.size / origImg.height)
-        val newHeight = origImg.height + (horzSeamPoints.size / testWidth)
-        (newWidth, newHeight)
-    }
+    val newWidth = testWidth
+    val newHeight = origImg.height - (horzSeamPoints.size / newWidth)
 
     val newImg = imgUtils.createImage(newWidth, newHeight)
-    removeInsertSeam(origImg, newImg, vertSeamPoints, horzSeamPoints, seamRemoval)
+    getSeamRemovedImage(origImg, newImg, vertSeamPoints, horzSeamPoints)
   }
 
   /**
    * renders origImg to newImg excluding points from vertical seams in vertSeamPoints and points from horizontal seams
    * in horzSeamPoints
-   * 
+   *
    * NOTE: for this to work properly, vertical seams must be removed prior to any horizontal seams being removed
    * 			also, the new image must be of the proper size (i.e. newImg.width = origImg.width - # of vertical seams)
    */
-  def removeInsertSeam(
+  def getSeamRemovedImage(
       origImg : Image, newImg : Image,
-      vertSeamPoints : Set[Point], horzSeamPoints : Set[Point], seamRemoval : Boolean) : Image = {
+      vertSeamPoints : Set[Point], horzSeamPoints : Set[Point]) : Image = {
 
     if (SeamConstants.DEBUG)
-      seamInvariantCheck(origImg, newImg, vertSeamPoints, horzSeamPoints, seamRemoval)
-
-    // for now, this only supports seam insertion in one dimension
-    if (!seamRemoval)
-      assert(horzSeamPoints.size == 0 || vertSeamPoints.size == 0, s"for now, this only supports seam insertion in one dimension")
+      seamInvariantCheck(origImg, newImg, vertSeamPoints, horzSeamPoints)
 
     // the y position at any given x position in new image
     val yNew = new Array[Int](newImg.width)
@@ -558,50 +660,25 @@ object SeamVisualization {
 
     for (y <- 0 until origImg.height) {
       xNew = 0
-      
+
       for (x <- 0 until origImg.width) {
         val thisPt = new Point(x, y)
-        (vertSeamPoints.contains(thisPt), horzSeamPoints.contains(thisPt), seamRemoval) match {
+        (vertSeamPoints.contains(thisPt), horzSeamPoints.contains(thisPt)) match {
           // if this point is not a part of a vertical seam or horizontal seam draw at new location
           // and increment both x and y because something was drawn there
-          case (false, false, _) =>
+          case (false, false) =>
             newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
             yNew(xNew) += 1
             xNew += 1
           // if a vertical seam, wait for the next x
           // (treat combo vertical & horizontal seams as vertical only)
-          case (true, true, true) => println("combo point")
-          case (true, false, true) => ()
+          case (true, true) => println("combo point")
+          case (true, false) => ()
           // if horizontal seam, wait for appropriate element in next y row
           // and skip this element in the new image for now
-          case (false, true, true) =>
+          case (false, true) =>
             xNew += 1
 
-          // if vertical seam, draw a pixel here and the next one over
-          case (true, false, false) =>
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            yNew(xNew) += 1
-            xNew += 1
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            yNew(xNew) += 1
-            xNew += 1
-          // if both vertical and horizontal seam, draw 2 pixels vertically and horizontally
-          case (true, true, false) =>
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            yNew(xNew) += 1
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            xNew += 1
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            yNew(xNew) += 1
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            xNew += 1
-          // if horizontal, draw twice on top of each other
-          case (false, true, false) =>
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            yNew(xNew) += 1
-            newImg.setColor(xNew, yNew(xNew), origImg.getColor(x, y))
-            yNew(xNew) += 1
-            xNew += 1
         }
       }
     }
@@ -616,47 +693,60 @@ object SeamVisualization {
           val (lastImg, imgPtrs) = prevTuple
           val newImg = imgUtils.copyImg(lastImg)
           drawSeam(newImg, color, thisSeam)
-          
+
           (newImg, imgPtrs:+imgUtils.createImagePointer(newImg))
       })
-    
+
     imgPtrLst
   }
-  
-  
+
+
   // TODO fix this
   def getSeamRemoveAddAnim(
       origImg : Image, imgUtils : ImageUtils,
       vertSeams : Seq[Set[Point]], horzSeams : Seq[Set[Point]],
       seamRemoval : Boolean) : List[ImagePointer] = {
 
-    val (_, vertImgPtrs) =
-      vertSeams.foldRight((origImg, List[ImagePointer]()))({
+    // fold over the vertical seams and create images where the seam is removed
+    val (lastWidth, vertSeamPts, vertImgPtrs) =
+      vertSeams.foldRight(origImg.width, new HashSet[Point](), List[ImagePointer]())({
         (thisSeam, prevTuple) =>
-          val (prevImg, imgPtrs) = prevTuple
+          // extract previous image width, all current seam pts, and image pointers accrued
+          val (prevWidth, prevSeamPts, imgPtrs) = prevTuple
 
+          val newWidth = prevWidth - 1
+          // add in these seam pts
+          prevSeamPts ++= thisSeam
+
+          // create a new image and pass along
           val newImg = {
-            val newImg = imgUtils.createImage(prevImg.width - 1, prevImg.height)
-            removeInsertSeam(prevImg, newImg, thisSeam, Set[Point](), seamRemoval)
+            val newImg = imgUtils.createImage(newWidth, origImg.height)
+            getSeamRemovedImage(origImg, newImg, prevSeamPts, Set[Point]())
           }
 
-          (newImg, imgPtrs:+imgUtils.createImagePointer(newImg))
+          (newWidth, prevSeamPts, imgPtrs:+imgUtils.createImagePointer(newImg))
       })
-      
-    val (_, imgPtrLst) =
-      horzSeams.foldRight((origImg, List[ImagePointer]()))({
+
+    // do the same for horizontal seams
+    val (_, _, imgPtrs) =
+      // start with last image and last set of anim pictures
+      horzSeams.foldRight((origImg.height, new HashSet[Point](), vertImgPtrs))({
         (thisSeam, prevTuple) =>
-          val (prevImg, imgPtrs) = prevTuple
+          // extract previous image height, all current horizontal seam pts, and image pointers accrued
+          val (prevHeight, prevHorzSeamPts, imgPtrs) = prevTuple
+
+          val newHeight = prevHeight - 1
+          prevHorzSeamPts ++= thisSeam
 
           val newImg = {
-            val newImg = imgUtils.createImage(prevImg.width, prevImg.height - 1)
-            removeInsertSeam(prevImg, newImg, Set[Point](), thisSeam, seamRemoval)
+            val newImg = imgUtils.createImage(lastWidth, newHeight)
+            getSeamRemovedImage(origImg, newImg, vertSeamPts, prevHorzSeamPts)
           }
-          
-          (newImg, imgPtrs:+imgUtils.createImagePointer(newImg))
+
+          (newHeight, prevHorzSeamPts, imgPtrs:+imgUtils.createImagePointer(newImg))
       })
-      
-    imgPtrLst
+
+    imgPtrs
   }
 }
 
@@ -664,7 +754,7 @@ object SeamVisualization {
 
 object Resizer {
   // new ratio represents height/width
-	private def vertSeamsToRemove(imgHeight : Integer, 
+	private def vertSeamsToRemove(imgHeight : Integer,
 		  imgWidth : Integer, newRatio : Double, seamRemoval : Boolean) : Integer =
 		// height = constant * width
     seamRemoval match {
@@ -672,7 +762,7 @@ object Resizer {
 		  case true => Math.max(0, imgHeight - (newRatio * imgWidth).toInt)
     }
 
-	private def horzSeamsToRemove(imgHeight : Integer, 
+	private def horzSeamsToRemove(imgHeight : Integer,
 			imgWidth : Integer, newRatio : Double, seamRemoval : Boolean) : Integer =
 		//   width = height / constant
     seamRemoval match {
@@ -682,19 +772,40 @@ object Resizer {
 }
 
 class Resizer(
-    imgUtils : ImageUtils, img: Image, 
-    targetHeight : Integer, targetWidth : Integer, 
+    imgUtils : ImageUtils, img: Image,
+    targetHeight : Integer, targetWidth : Integer,
 		maxEnergy : Double,
     vertSeamNum : Integer,horzSeamNum : Integer,
 		seamRemoval : Boolean) {
 
   val energyRetriever = new EnergyRetriever(imgUtils, img)
 
-  private val upperLeft = SeamCarver.getPixelNodes(energyRetriever.getEnergyMap)
-  val (vertSeams, horzSeams) = SeamCarver.getSeams(upperLeft, maxEnergy, img.width, img.height, horzSeamNum, vertSeamNum)
+  // gather vertical and horizontal seams
+  val (vertSeams, vertSeamPts, horzSeams, horzSeamPts, insertionMapping) = {
+    val energyMap = energyRetriever.getEnergyMap
+    val upperLeftNode = SeamCarver.getPixelNodes(energyMap)
+    val totVertSeamEnergy = maxEnergy * img.height
+    val (vertSeams, vertUpperLeft) = SeamCarver.getVertSeams(upperLeftNode, totVertSeamEnergy, vertSeamNum)
 
-  val vertSeamPts = vertSeams.foldRight(new HashSet[Point]())({ (pts, set) => set++=pts })
-  val horzSeamPts = horzSeams.foldRight(new HashSet[Point]())({ (pts, set) => set++=pts })
+    val vertSeamPts = vertSeams.foldRight(new HashSet[Point]())({ (pts, set) => set++=pts })
+
+    val (horzSeams, mapping) =
+      if (seamRemoval) {
+        val totHorzSeamEnergy = maxEnergy * img.width
+        val (horzSeams, _) = SeamCarver.getHorzSeams(vertUpperLeft, totHorzSeamEnergy, horzSeamNum)
+        (horzSeams, None)
+      }
+      else {
+        val totHorzSeamEnergy = maxEnergy * img.width
+        val (newUpperLeftNode, mapping) = SeamCarver.insertVertSeams(energyMap, vertSeamPts)
+        val (horzSeams, _) = SeamCarver.getHorzSeams(newUpperLeftNode, totHorzSeamEnergy, horzSeamNum)
+        (horzSeams, Some(mapping))
+      }
+
+    val horzSeamPts = horzSeams.foldRight(new HashSet[Point]())({ (pts, set) => set++=pts })
+
+    (vertSeams, vertSeamPts, horzSeams, horzSeamPts, mapping)
+  }
 
 
   // do not do any resizing of image once seams have been removed
@@ -703,7 +814,7 @@ class Resizer(
 		this(imgUtils, img, null, null, maxEnergy, vertSeamNum, horzSeamNum, seamRemoval)
 
   // remove default proportion vertically and horizontally
-	def this(imgUtils : ImageUtils, img : Image) = 
+	def this(imgUtils : ImageUtils, img : Image) =
     this(imgUtils, img, SeamConstants.SEAM_DEFAULT_MAX_SCORE,
       (SeamConstants.SEAM_DEFAULT_MAX_VERT_PROPORTION * img.width).toInt,
       (SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.height).toInt,
@@ -715,17 +826,21 @@ class Resizer(
 			Resizer.horzSeamsToRemove(img.height, img.width, heightToWidthRatio, seamRemoval),
 			Resizer.vertSeamsToRemove(img.height, img.width, heightToWidthRatio, seamRemoval),
       seamRemoval)
-  
-			  
+
+
   var _finalImg : Option[Image] = None
-  
+
 	/**
 	 * @return		returns the finished image
 	 */
 	def getFinalImage : Image = {
     _finalImg match {
       case None =>
-        val finalImg = SeamVisualization.removeInsertSeam(imgUtils, img, vertSeamPts, horzSeamPts, seamRemoval)
+        val finalImg = seamRemoval match {
+          case true => SeamVisualization.getSeamRemovedImage(imgUtils, img, vertSeamPts, horzSeamPts)
+          case false => SeamVisualization.getSeamInsertionImage(imgUtils, img, horzSeamPts, insertionMapping.get)
+        }
+
         _finalImg = Some(finalImg)
         finalImg
       case Some(finalImg) => finalImg
@@ -776,4 +891,3 @@ class Resizer(
     }
 	}
 }
-
