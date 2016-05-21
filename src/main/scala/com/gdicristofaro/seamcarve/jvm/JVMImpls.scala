@@ -133,9 +133,9 @@ class JVMImageUtils extends ImageUtils {
 		ptrs
   }
 
-  def giveEdges(orig: Image, background: Color, newHeight: Int, newWidth: Int, position: ImgPosition): Image = {
+  def giveEdges(orig: Image, background: Color, newWidth: Int, newHeight: Int, position: ImgPosition): Image = {
 		if (orig.height > newHeight || orig.width > newWidth)
-			throw new IllegalArgumentException("dimensions of original image are greater than new image dimensions")
+			throw new IllegalArgumentException(s"dimensions of original image are greater than new image dimensions: original: (${orig.width}, ${orig.height}) letterboxed: ($newWidth, $newHeight)")
 		
 		
 		val toReturn = getBufferedImg(newWidth, newHeight)
@@ -196,7 +196,9 @@ class JVMImageUtils extends ImageUtils {
 		for (index <- 0 until imgs.length) {
 		  // add image at right location
 		  val img = imgs(index).load.asInstanceOf[JVMImage].bufferedImage
-			writer.encodeVideo(0, img, ((1000.toDouble / fps) * index).toInt, TimeUnit.MILLISECONDS)
+			val newBuffImage = new BufferedImage(img.getWidth, img.getHeight, BufferedImage.TYPE_3BYTE_BGR)
+			newBuffImage.getGraphics.drawImage(img, 0,0,null)
+			writer.encodeVideo(0, newBuffImage, ((1000.toDouble / fps) * index).toInt, TimeUnit.MILLISECONDS)
 		}
     
 		// tell the writer to close and write the trailer if  needed
