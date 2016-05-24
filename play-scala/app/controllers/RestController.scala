@@ -19,10 +19,8 @@ class RestController extends Controller {
     __ \ 'image).read[String]
 
   def minRead(body : JsValue) : Option[Result] = {
-    println("arrived at min reader")
     body.validate[String](minReader).map{
       case(imageDataURL) =>
-        println("received data url: " + imageDataURL)
         getImgResp(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL))))
     }.recoverTotal{ _ => None }
   }
@@ -41,24 +39,6 @@ class RestController extends Controller {
       None }
   }
 
-  val fullReader = (
-    (__ \ 'image).read[String] and
-      (__ \ 'targetHeight).read[Int] and
-      (__ \ 'targetWidth).read[Int] and
-      (__ \ 'maxEnergy).read[Double] and
-      (__ \ 'vertSeamNum).read[Int] and
-      (__ \ 'horzSeamNum).read[Int] and
-      (__ \ 'seamRemoval).read[Boolean]
-    ) tupled
-
-  def fullRead(body : JsValue) : Option[Result] = {
-    body.validate[(String,Int,Int,Double,Int,Int,Boolean)](fullReader).map{
-      case(imageDataURL, targetHeight, targetWidth, maxEnergy, vertSeamNum, horzSeamNum, seamRemoval) =>
-        getImgResp(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL)),
-          targetHeight, targetWidth, maxEnergy, vertSeamNum, horzSeamNum, seamRemoval))
-    }.recoverTotal{ _ => None }
-  }
-
   val seamNumReader = (
     (__ \ 'image).read[String] and
       (__ \ 'maxEnergy).read[Double] and
@@ -75,7 +55,7 @@ class RestController extends Controller {
     }.recoverTotal{ _ => None }
   }
 
-  val readerList : List[(JsValue) => Option[Result]] = List(fullRead, seamNumRead, heightWidthRatioRead, minRead)
+  val readerList : List[(JsValue) => Option[Result]] = List(seamNumRead, heightWidthRatioRead, minRead)
 
   def readJson(body : JsValue) : Option[Result] = {
     def _read(body : JsValue, lst : List[(JsValue) => Option[Result]]) : Option[Result] = {
@@ -133,7 +113,6 @@ class RestController extends Controller {
   def seamCarve = Action(parse.json(maxLength = 1024 * 1024 * 10)) { request =>
     readJson(request.body) match {
       case Some(status) =>
-        println("status returned is " + status)
         status
       case None => BadRequest("Invalid JSON Arguments")
     }

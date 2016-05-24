@@ -853,7 +853,6 @@ object Resizer {
 
 class Resizer(
                imgUtils : ImageUtils, img: Image,
-               targetHeight : Integer, targetWidth : Integer,
                maxEnergy : Double,
                vertSeamNum : Integer,horzSeamNum : Integer,
                seamRemoval : Boolean) {
@@ -886,12 +885,6 @@ class Resizer(
 
     (vertSeams, vertSeamPts, horzSeams, horzSeamPts, mapping)
   }
-
-
-  // do not do any resizing of image once seams have been removed
-  def this(imgUtils : ImageUtils, img : Image, maxEnergy : Double, vertSeamNum : Integer, horzSeamNum : Integer,
-           seamRemoval : Boolean) =
-    this(imgUtils, img, null, null, maxEnergy, vertSeamNum, horzSeamNum, seamRemoval)
 
   // remove default proportion vertically and horizontally
   def this(imgUtils : ImageUtils, img : Image) =

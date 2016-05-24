@@ -22,18 +22,12 @@ object EntryPoint extends js.JSApp {
 
 @JSExport("SeamCarverFactory")
 object Main {
-  
-  @JSExport
-  def getCarver(image: html.Canvas, targetHeight : Integer, targetWidth : Integer, 
-    maxEnergy : Double, horzSeamNum : Integer, vertSeamNum : Integer, seamEnlarge : Boolean) =
-      new Main(new Resizer(ResizerUtils.imgUtils, new JSImage(image), targetHeight, targetWidth, 
-        maxEnergy, horzSeamNum, vertSeamNum, seamEnlarge))
 
   @JSExport
   def getCarver(canvas : html.Canvas, maxEnergy : Double, horzSeamNum : Integer, 
-      vertSeamNum : Integer, seamEnlarge : Boolean) =
+      vertSeamNum : Integer, seamRemoval : Boolean) =
         new Main(new Resizer(ResizerUtils.imgUtils, new JSImage(canvas), maxEnergy, 
-          horzSeamNum, vertSeamNum, seamEnlarge))
+          horzSeamNum, vertSeamNum, seamRemoval))
   
   @JSExport
   def getCarver(canvas : html.Canvas) = {
@@ -41,9 +35,9 @@ object Main {
   }
   
   @JSExport
-  def getCarver(canvas : html.Canvas, heightToWidthRatio : Double, seamEnlarge : Boolean) =
+  def getCarver(canvas : html.Canvas, heightToWidthRatio : Double, seamRemoval : Boolean) =
     new Main(new Resizer(
-      ResizerUtils.imgUtils, new JSImage(canvas), heightToWidthRatio, seamEnlarge))
+      ResizerUtils.imgUtils, new JSImage(canvas), heightToWidthRatio, seamRemoval))
 
 }
 

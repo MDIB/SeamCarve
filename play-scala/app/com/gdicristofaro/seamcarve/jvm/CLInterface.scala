@@ -28,12 +28,6 @@ object CLInterface {
 		options.addOption("heightToWidth", true, "Specifies a height to width ratio.  For instance," +
 				" an argument of 4 would mean the generated image is four times taller than wide." + 
 				"  If this argument is used, targetHeight, targetWidth, horzNum, and vertNum are ignored.")
-		options.addOption("targetHeight", true, "Specifies the target height for the generated image.  " + 
-				"If the image will not be resized to that point through seam carving, the image will be resized in the " + 
-				"conventional manner to get the image to the height specified in this option.")
-		options.addOption("targetWidth", true, "Specifies the target width for the generated image.  " + 
-				"If the image will not be resized to that point through seam carving, the image will be resized in the " + 
-				"conventional manner to get the image to the width specified in this option.")
 		options.addOption("maxEnergy", true, "Specifies the maximum energy for a seam.  " +
 				"The number represents the average energy each pixel in a seam will have.  "+ 
 				"The number will be a number between 0 and 1.  The default is 1 as it represents the maximum possible energy.")
@@ -67,29 +61,6 @@ object CLInterface {
 						img,
 						cmd.getOptionValue("heightToWidth").toDouble,
 						if (cmd.hasOption("seamEnlarge")) { cmd.getOptionValue("heightToWidth").toBoolean } else { false })
-			}
-			//if has targetHeight or targetWidth, take that route
-			else if (cmd.hasOption("targetHeight") || cmd.hasOption("targetWidth")) {
-				//must have both args for this to work
-				if (!cmd.hasOption("targetHeight") || !cmd.hasOption("targetWidth")) {
-					System.out.println("Sorry, but both targetHeight and targetWidth should be specified.")
-					return
-				}				
-
-				//create the resize object
-				
-				resizer = new Resizer(imgUtils,
-				    img,
-						cmd.getOptionValue("targetHeight").toInt,
-						cmd.getOptionValue("targetWidth").toInt,
-						if (cmd.hasOption("maxEnergy"))  cmd.getOptionValue("maxEnergy").toInt 
-						  else SeamConstants.SEAM_DEFAULT_MAX_SCORE,
-						if (cmd.hasOption("horzNum"))  cmd.getOptionValue("horzNum").toInt 
-						  else (SeamConstants.SEAM_DEFAULT_MAX_HORZ_PROPORTION * img.width).toInt, 
-						if (cmd.hasOption("horzNum"))  cmd.getOptionValue("vertNum").toInt 
-						  else (SeamConstants.SEAM_DEFAULT_MAX_VERT_PROPORTION * img.height).toInt,
-						if (cmd.hasOption("seamEnlarge"))  cmd.getOptionValue("heightToWidth").toBoolean 
-						  else false)
 			}
 			//take a basic approach as necessary
 			else {
