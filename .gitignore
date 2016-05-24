@@ -1,13 +1,1 @@
-/bin/*
-/target/*
 *.DS_Store
-/cache-main/*
-/.classpath
-/.project
-/.settings/*
-/build/*
-/node_modules/*
-/project/*
-
-/bin/
-/target/

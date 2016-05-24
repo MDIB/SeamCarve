@@ -1,0 +1,13 @@
+New log file opened at Mon May 23 21:16:51 EDT 2016 by 30094@GregDiCristofaro
+Taking next connection to: 51673
+New client attempting to connect on port: 51674-51673
+  Address = /192.168.1.194:51673
+This client on port 51674 has uuid 06da44af-5897-4512-9b0c-c2a918378896 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-06da44af-5897-4512-9b0c-c2a918378896
+Taking next connection to: 51673
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51673
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51673
