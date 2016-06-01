@@ -7,4 +7,6 @@ GET     /*file               controllers.Assets.versioned(path="/public", file)
 
 GET     /                                 controllers.Assets.at(path="/public", file="index.html")
 
-POST    /seamcarve                         controllers.RestController.seamCarve
+POST    /seamcarvepics                         controllers.RestController.seamCarvePics
+
+POST    /seamcarvevideo                         controllers.RestController.seamCarveVideo

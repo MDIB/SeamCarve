@@ -18,10 +18,10 @@ class RestController extends Controller {
   val minReader = (
     __ \ 'image).read[String]
 
-  def minRead(body : JsValue) : Option[Result] = {
+  def minRead(body : JsValue) : Option[Resizer] = {
     body.validate[String](minReader).map{
       case(imageDataURL) =>
-        getImgResp(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL))))
+        Some(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL))))
     }.recoverTotal{ _ => None }
   }
 
@@ -31,10 +31,10 @@ class RestController extends Controller {
       (__ \ 'seamRemoval).read[Boolean]
     )tupled
 
-  def heightWidthRatioRead(body : JsValue) : Option[Result] = {
+  def heightWidthRatioRead(body : JsValue) : Option[Resizer] = {
     body.validate[(String,Double,Boolean)](heightWidthReader).map{
       case(imageDataURL,heightWidthRatio,seamRemoval) =>
-        getImgResp(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL)), heightWidthRatio, seamRemoval))
+        Some(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL)), heightWidthRatio, seamRemoval))
     }.recoverTotal{ e =>
       None }
   }
@@ -47,18 +47,18 @@ class RestController extends Controller {
       (__ \ 'seamRemoval).read[Boolean]
     ) tupled
 
-  def seamNumRead(body : JsValue) : Option[Result] = {
+  def seamNumRead(body : JsValue) : Option[Resizer] = {
     body.validate[(String,Double,Int,Int,Boolean)](seamNumReader).map{
       case(imageDataURL,maxEnergy, vertSeamNum, horzSeamNum, seamRemoval) =>
-        getImgResp(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL)),
+        Some(new Resizer(imgUtils, new JVMImage(dataURLtoImage(imageDataURL)),
           maxEnergy, vertSeamNum, horzSeamNum, seamRemoval))
     }.recoverTotal{ _ => None }
   }
 
-  val readerList : List[(JsValue) => Option[Result]] = List(seamNumRead, heightWidthRatioRead, minRead)
+  val readerList : List[(JsValue) => Option[Resizer]] = List(seamNumRead, heightWidthRatioRead, minRead)
 
-  def readJson(body : JsValue) : Option[Result] = {
-    def _read(body : JsValue, lst : List[(JsValue) => Option[Result]]) : Option[Result] = {
+  def readJson(body : JsValue) : Option[Resizer] = {
+    def _read(body : JsValue, lst : List[(JsValue) => Option[Resizer]]) : Option[Resizer] = {
       lst match {
         case f::tl =>
           f(body) match {
@@ -95,9 +95,7 @@ class RestController extends Controller {
     ))
   }
 
-  // streamlines getting from resizer to a response option
-  def getImgResp(resizer : Resizer) : Option[Result] = Some(Ok(getImgs(resizer).toString))
-
+  // gets the video as an array of images
   def getVideo(resizer : Resizer) : JsValue = {
     val dataUrlLst = resizer.getAnimPics.map{
       (imgPtr) =>
@@ -109,11 +107,18 @@ class RestController extends Controller {
     JsArray(dataUrlLst)
   }
 
-  // request entry
-  def seamCarve = Action(parse.json(maxLength = 1024 * 1024 * 10)) { request =>
+  // entry for receiving pictures requests
+  def seamCarvePics = Action(parse.json(maxLength = 1024 * 1024 * 10)) { request =>
     readJson(request.body) match {
-      case Some(status) =>
-        status
+      case Some(resizer) => Ok(getImgs(resizer))
+      case None => BadRequest("Invalid JSON Arguments")
+    }
+  }
+
+  // entry for receiving video requests
+  def seamCarveVideo = Action(parse.json(maxLength = 1024 * 1024 * 10)) { request =>
+    readJson(request.body) match {
+      case Some(resizer) => Ok(getVideo(resizer))
       case None => BadRequest("Invalid JSON Arguments")
     }
   }
