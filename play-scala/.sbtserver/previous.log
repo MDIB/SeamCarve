@@ -1,5 +1,5 @@
-New log file opened at Tue May 24 21:00:55 EDT 2016 by 55720@GregDiCristofaro
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@6ba2cd8
+New log file opened at Fri Jun 03 20:24:52 EDT 2016 by 47442@GregDiCristofaro
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@4ee44fe2
 == resolving dependencies com.typesafe.play#play-json_2.10;2.4.4->joda-time#joda-time;2.8.1 [compile->compile(*)]
 == resolving dependencies com.typesafe.play#play-json_2.10;2.4.4->org.joda#joda-convert;1.7 [compile->master(compile)]
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.5 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-library;2.10.4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}
@@ -15,17 +15,17 @@ dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflec
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@2fda2b50
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@ab46dcf
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@7695fda
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@7cc04a65
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@50e26f03
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@10b79140
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@b2054f3
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@e6efe5f
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@755e6e6c
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@279d3048
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@38847892
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@59f0c5bc
 == resolving dependencies com.typesafe.play#play-json_2.10;2.4.4->org.joda#joda-convert;1.7 [compile->compile(*)]
 == resolving dependencies com.typesafe.play#play-json_2.10;2.4.4->org.scala-lang#scala-reflect;2.10.4 [compile->master(compile)]
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.5 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} => dependency: org.scala-lang#scala-library;2.10.4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}
@@ -103,17 +103,17 @@ dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflec
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@5f6f05f9
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@307026ec
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@6f92f417
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@78b60f16
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@541e8cac
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@11d679e
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@7578ca99
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@66b3cefc
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@521f5902
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@57c5d380
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@2ad53d1a
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@1fc3b8d1
 == resolving dependencies com.typesafe.play#play-json_2.10;2.4.4->com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.4 [compile->compile(*)]
 == resolving dependencies com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.4->com.fasterxml.jackson.core#jackson-core;2.5.4 [compile->master(compile)]
 == resolving dependencies com.fasterxml.jackson.datatype#jackson-datatype-jdk8;2.5.4->com.fasterxml.jackson.core#jackson-core;2.5.4 [compile->compile(*)]
@@ -133,17 +133,17 @@ dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflec
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@1250db79
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@761359d5
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@6dd9009c
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@43c73b3a
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@587bcabd
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@69933c70
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@39b97380
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@3e45f226
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@2da6ecdd
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@5274d9ca
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@85ec415
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@28903655
 == resolving dependencies com.typesafe.play#play-json_2.10;2.4.4->com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.4 [compile->compile(*)]
 == resolving dependencies com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.4->com.fasterxml.jackson.core#jackson-core;2.5.4 [compile->master(compile)]
 == resolving dependencies com.fasterxml.jackson.datatype#jackson-datatype-jsr310;2.5.4->com.fasterxml.jackson.core#jackson-core;2.5.4 [compile->compile(*)]
@@ -213,50 +213,50 @@ dependency descriptor has been mediated: dependency: org.scala-lang#scala-reflec
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@37561898
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@27ff2d3e
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@44ec57d6
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@44e215f
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@47f29e90
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@5ba03edd
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@5ec9c004
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@745d49c7
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@59dc919d
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@2a951caf
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@7f282f97
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@5fa4947b
 == resolving dependencies org.irundaia.sbt#sbt-sassify;1.4.2->com.nativelibs4java#jnaerator-runtime;0.12 [compile->runtime]
 == resolving dependencies org.irundaia.sbt#sbt-sassify;1.4.2->com.nativelibs4java#jnaerator-runtime;0.12 [compile->compile]
 == resolving dependencies com.nativelibs4java#jnaerator-runtime;0.12->com.nativelibs4java#ochafik-util;0.12 [compile->master(compile)]
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@3ca40487
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@1ba57d87
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@1493af7
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@19d77a38
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@3fa3f9de
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@622b2235
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@7adc9c1e
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@273ad5db
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@66c02ffe
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@17c3cdfe
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@2e162f53
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@35e77384
 == resolving dependencies com.nativelibs4java#jnaerator-runtime;0.12->com.nativelibs4java#ochafik-util;0.12 [compile->compile(*)]
 == resolving dependencies com.nativelibs4java#jnaerator-runtime;0.12->net.java.dev.jna#jna;4.1.0 [compile->master(compile)]
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]} => dependency: org.scala-lang#scala-library;2.10.4 {provided=[default(compile)]}
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@10790fef
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@7f035d8d
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@77217dc1
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@76a6c3ae
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@6852a8c1
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@78d3e5ad
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@3cafe2e3
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@4021ddcd
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@64f184ee
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@25ab0f71
 dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
-dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@7ae4bd03 => sbt.ivyint.MergedDescriptors@184222c4
+dependency descriptor has been mediated: sbt.ivyint.MergedDescriptors@19461f94 => sbt.ivyint.MergedDescriptors@655003d9
 == resolving dependencies com.nativelibs4java#jnaerator-runtime;0.12->net.java.dev.jna#jna;4.1.0 [compile->compile(*)]
 == resolving dependencies com.nativelibs4java#jnaerator-runtime;0.12->com.nativelibs4java#ochafik-util;0.12 [runtime->runtime(*)]
 == resolving dependencies com.nativelibs4java#jnaerator-runtime;0.12->com.nativelibs4java#ochafik-util;0.12 [runtime->compile]
@@ -872,7 +872,7 @@ all callers are evicted for org.scala-sbt#control;0.13.8-M3: evicting too
 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-:: resolution report :: resolve 20704ms :: artifacts dl 219ms
+:: resolution report :: resolve 38447ms :: artifacts dl 467ms
 	report for default#play-scala-build;0.1-SNAPSHOT compile produced in /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/project/target/resolution-cache/reports/default-play-scala-build-compile.xml
 	report for default#play-scala-build;0.1-SNAPSHOT runtime produced in /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/project/target/resolution-cache/reports/default-play-scala-build-runtime.xml
 	report for default#play-scala-build;0.1-SNAPSHOT test produced in /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/project/target/resolution-cache/reports/default-play-scala-build-test.xml
@@ -886,7 +886,7 @@ all callers are evicted for org.scala-sbt#control;0.13.8-M3: evicting too
 	report for default#play-scala-build;0.1-SNAPSHOT docs produced in /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/project/target/resolution-cache/reports/default-play-scala-build-docs.xml
 	report for default#play-scala-build;0.1-SNAPSHOT pom produced in /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/project/target/resolution-cache/reports/default-play-scala-build-pom.xml
 	report for default#play-scala-build;0.1-SNAPSHOT scala-tool produced in /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/project/target/resolution-cache/reports/default-play-scala-build-scala-tool.xml
-	resolve done (20704ms resolve - 219ms download)
+	resolve done (38447ms resolve - 467ms download)
 [info] Done updating.
 Done updating.
 
@@ -930,112 +930,7 @@ Set current project to play-scala (in build file:/Users/gregdicristofaro/git/Sea
 > server-handle-next-server-request
 > compile
 Evaluating tasks: compile:compile
-Running task... Cancel: sbt.server.ServerTaskCancellation@7631cc65, check cycles: false
-
-Initial source changes: 
-	removed:Set()
-	added: Set()
-	modified: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/RoutesPrefix.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/CLInterface.scala)
-Removed products: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$documentation$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamInsertAnim$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamConstants.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$routes$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$minRead$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/CLInterface$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/javascript/ReverseRestController.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts$$anonfun$removeSeam$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/Testing.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getVertSeamInsert$1$$anonfun$apply$mcVI$sp$7.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/CenterPosition.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyRetriever$$anonfun$getImage$1$$anonfun$apply$mcVI$sp$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/RoutesPrefix$$anonfun$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyRetriever.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$insertVertSeams$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyMap$$anonfun$validateEnergy$1$$anonfun$apply$mcVI$sp$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/Testing$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$drawSeam$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyRetriever$$anonfun$getEnergyAverage$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_Assets_at1_invoker$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$seamNumRead$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyMap$$anonfun$validateEnergy$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$6.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Point.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyMap.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts$$anonfun$getBestSeam$4.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$seamNumRead$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/RoutesPrefix.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Resizer.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Resizer$$anonfun$10.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$fullRead$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/JVMImage.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamInsertionImage$1$$anonfun$apply$mcVI$sp$5.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/TopLeftPosition$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getHorzSeamInsert$1$$anonfun$apply$mcVI$sp$8.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$insertVertSeams$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamConstants$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Resizer$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$seamCarve$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$seamInvariantCheck$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/routes$javascript.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/JVMImageUtils.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Resizer$$anonfun$11.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyRetriever$$anonfun$getEnergyAverage$1$$anonfun$apply$mcVI$sp$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/JVMCommon.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts$$anonfun$setEnergy$4.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$5.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$heightWidthRatioRead$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts$$anonfun$removeSeam$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$heightWidthRatioRead$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts$$anonfun$setEnergy$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$insertVertSeams$2$$anonfun$apply$mcVI$sp$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts$$anonfun$removeSeam$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/ImagePointer.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/RoutesPrefix$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts$$anonfun$getBestSeam$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamInsertionImage$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Color$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$fullRead$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamRemovedImage$2$$anonfun$apply$mcVI$sp$6.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Point$$anonfun$hashCode$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$5.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/ImageUtils$$anonfun$createManyImagePointers$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamRemovedImage$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/javascript/ReverseAssets.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/PixelNode.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$getPixelNodes$1$$anonfun$apply$mcVI$sp$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts$$anonfun$removeSeam$4.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/JVMCommon$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Color.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/ImgPosition.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyRetriever$$anonfun$getImage$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/CLInterface.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$1$$anonfun$apply$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/routes.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$seamInvariantCheck$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getVertSeamInsert$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_Assets_versioned0_invoker$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamInsertAnim$1$$anonfun$apply$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$insertVertSeams$3$$anonfun$apply$mcVI$sp$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_RestController_seamCarve2_invoker$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$getPixelNodes$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyRetriever$$anonfun$getEnergyMap$1$$anonfun$apply$mcVI$sp$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/ReverseAssets.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Point$$anonfun$hashCode$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$setEnergy$5.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/EnergyRetriever$$anonfun$getEnergyMap$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/ImageUtils.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/CenterPosition$.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts$$anonfun$getBestSeam$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$insertVertSeams$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/ImageUtils$class.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/JVMImgPointer.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Resizer$$anonfun$letterboxArr$1$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamInsertAnim$1$$anonfun$7.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$4.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/JVMImageUtils$$anonfun$outputVideo$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts$$anonfun$setEnergy$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/TopLeftPosition.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$minRead$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$getPixelNodes$2$$anonfun$apply$mcVI$sp$4.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamInsertAnim$1$$anonfun$apply$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Resizer$$anonfun$9.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$seamInvariantCheck$4.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/RestController$$anonfun$4.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Image.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/jvm/JVMImageUtils$$anonfun$generateFadeInImages$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$seamInvariantCheck$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getSeamRemovedImage$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/VertSeamFuncts$$anonfun$setEnergy$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$2.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$$anonfun$getPixelNodes$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/controllers/ReverseRestController.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/HorzSeamFuncts$$anonfun$getBestSeam$3.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/Resizer$$anonfun$8.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamVisualization$$anonfun$getHorzSeamInsert$1.class, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/com/gdicristofaro/seamcarve/core/SeamCarver$.class)
-External API changes: API Changes: Set()
-Modified binary dependencies: Set()
-Initial directly invalidated sources: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/RoutesPrefix.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/CLInterface.scala)
-
-Sources indirectly invalidated by:
-	product: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/JVMImpls.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/EnergyMap.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamConstants.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/Testing.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/Interfaces.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/EnergyRetriever.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/RoutesPrefix.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/CLInterface.scala)
-	binary dep: Set()
-	external source: Set()
-All initially invalidated sources: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/JVMImpls.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/EnergyMap.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamConstants.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/Testing.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/Interfaces.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/EnergyRetriever.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/RoutesPrefix.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/CLInterface.scala)
-
-Recompiling all 14 sources: invalidated sources (14) exceeded 50.0% of all sources
-Read from stdout: Compiling 13 Scala sources and 1 Java source to /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes...
-Compiling 13 Scala sources and 1 Java source to /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes...
-Getting compiler-interface from component compiler for Scala 2.11.7
-Other repositories:
-Default repositories:
-Getting compiler-interface from component compiler for Scala 2.11.7
-Other repositories:
-Default repositories:
-Running cached compiler ea849a4, interfacing (CompilerInterface) with Scala compiler version 2.11.7
-Calling Scala compiler with arguments  (CompilerInterface):
-	-deprecation
-	-unchecked
-	-encoding
-	utf8
-	-bootclasspath
-	/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/classes:/Users/gregdicristofaro/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
-	-classpath
-	/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/twirl-api_2.11/jars/twirl-api_2.11-1.1.1.jar:/Users/gregdicristofaro/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.4.jar:/Users/gregdicristofaro/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-server_2.11/jars/play-server_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-iteratees_2.11/jars/play-iteratees_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe/config/bundles/config-1.3.0.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-json_2.11/jars/play-json_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-functional_2.11/jars/play-functional_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-datacommons_2.11/jars/play-datacommons_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.9.2.jar:/Users/gregdicristofaro/.ivy2/cache/org.joda/joda-convert/jars/joda-convert-1.8.1.jar:/Users/gregdicristofaro/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar:/Users/gregdicristofaro/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.7.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.7.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.7.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/bundles/jackson-datatype-jdk8-2.7.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/bundles/jackson-datatype-jsr310-2.7.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-netty-utils/jars/play-netty-utils-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.16.jar:/Users/gregdicristofaro/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.16.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-streams_2.11/jars/play-streams_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/org.reactivestreams/reactive-streams/jars/reactive-streams-1.0.0.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.akka/akka-stream_2.11/jars/akka-stream_2.11-2.4.4.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.akka/akka-actor_2.11/jars/akka-actor_2.11-2.4.4.jar:/Users/gregdicristofaro/.ivy2/cache/org.scala-lang.modules/scala-java8-compat_2.11/bundles/scala-java8-compat_2.11-0.7.0.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe/ssl-config-akka_2.11/bundles/ssl-config-akka_2.11-0.2.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe/ssl-config-core_2.11/bundles/ssl-config-core_2.11-0.2.1.jar:/Users/gregdicristofaro/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.11/jars/akka-slf4j_2.11-2.4.4.jar:/Users/gregdicristofaro/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.10.jar:/Users/gregdicristofaro/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/Users/gregdicristofaro/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/Users/gregdicristofaro/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.google.inject/guice/jars/guice-4.0.jar:/Users/gregdicristofaro/.ivy2/cache/javax.inject/javax.inject/jars/javax.inject-1.jar:/Users/gregdicristofaro/.ivy2/cache/aopalliance/aopalliance/jars/aopalliance-1.0.jar:/Users/gregdicristofaro/.ivy2/cache/com.google.inject.extensions/guice-assistedinject/jars/guice-assistedinject-4.0.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-netty-server_2.11/jars/play-netty-server_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.netty/netty-reactive-streams-http/jars/netty-reactive-streams-http-1.0.5.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.netty/netty-reactive-streams/jars/netty-reactive-streams-1.0.5.jar:/Users/gregdicristofaro/.ivy2/cache/io.netty/netty-transport-native-epoll/jars/netty-transport-native-epoll-4.0.36.Final-linux-x86_64.jar:/Users/gregdicristofaro/.ivy2/cache/io.netty/netty-common/jars/netty-common-4.0.36.Final.jar:/Users/gregdicristofaro/.ivy2/cache/io.netty/netty-buffer/jars/netty-buffer-4.0.36.Final.jar:/Users/gregdicristofaro/.ivy2/cache/io.netty/netty-transport/jars/netty-transport-4.0.36.Final.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-logback_2.11/jars/play-logback_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.1.4.jar:/Users/gregdicristofaro/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.1.4.jar:/Users/gregdicristofaro/.ivy2/cache/commons-cli/commons-cli/jars/commons-cli-1.3.1.jar:/Users/gregdicristofaro/.ivy2/cache/xuggle/xuggle-xuggler/jars/xuggle-xuggler-5.2.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-jdbc_2.11/jars/play-jdbc_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-jdbc-api_2.11/jars/play-jdbc-api_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.jolbox/bonecp/bundles/bonecp-0.8.0.RELEASE.jar:/Users/gregdicristofaro/.ivy2/cache/com.zaxxer/HikariCP/bundles/HikariCP-2.4.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.googlecode.usc/jdbcdslog/jars/jdbcdslog-1.0.6.2.jar:/Users/gregdicristofaro/.ivy2/cache/com.h2database/h2/jars/h2-1.4.191.jar:/Users/gregdicristofaro/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-cache_2.11/jars/play-cache_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.6.11.jar:/Users/gregdicristofaro/.ivy2/cache/com.typesafe.play/play-ws_2.11/jars/play-ws_2.11-2.5.3.jar:/Users/gregdicristofaro/.ivy2/cache/com.google.guava/guava/bundles/guava-19.0.jar:/Users/gregdicristofaro/.ivy2/cache/org.asynchttpclient/async-http-client/jars/async-http-client-2.0.2.jar:/Users/gregdicristofaro/.ivy2/cache/io.netty/netty-codec-http/jars/netty-codec-http-4.0.36.Final.jar:/Users/gregdicristofaro/.ivy2/cache/io.netty/netty-codec/jars/netty-codec-4.0.36.Final.jar:/Users/gregdicristofaro/.ivy2/cache/io.netty/netty-handler/jars/netty-handler-4.0.36.Final.jar:/Users/gregdicristofaro/.ivy2/cache/org.asynchttpclient/netty-resolver-dns/jars/netty-resolver-dns-2.0.2.jar:/Users/gregdicristofaro/.ivy2/cache/org.asynchttpclient/netty-resolver/jars/netty-resolver-2.0.2.jar:/Users/gregdicristofaro/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.21.jar:/Users/gregdicristofaro/.ivy2/cache/org.asynchttpclient/netty-codec-dns/jars/netty-codec-dns-2.0.2.jar:/Users/gregdicristofaro/.ivy2/cache/org.javassist/javassist/bundles/javassist-3.20.0-GA.jar:/Users/gregdicristofaro/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/Users/gregdicristofaro/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/Users/gregdicristofaro/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.0.1.jar:/Users/gregdicristofaro/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.0.1.jar:/Users/gregdicristofaro/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar
-Read from stdout: there were two feature warnings; re-run with -feature for details
-there were two feature warnings; re-run with -feature for details
-Read from stdout: one warning found
-one warning found
-Scala compilation took 15.705371171 s
-Attempting to call com.sun.tools.javac.api.JavacTool@2da77db4 directly...
-Java compilation took 0.631905939 s
-Java analysis took 0.149562417 s
-Java compile + analysis took 0.796464714 s
-Invalidating /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala...
-Invalidating (transitively) by inheritance from /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala...
-Initial set of included nodes: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala)
-Invalidated by transitive inheritance dependency: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala)
-The /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala source file has the following regular definitions changed:
-	seamCarvePics, seamCarve, seamCarveVideo.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java
-Invalidating /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala...
-Invalidating (transitively) by inheritance from /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala...
-Initial set of included nodes: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala)
-Invalidated by transitive inheritance dependency: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala)
-The /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/core/SeamMap.scala source file has the following regular definitions changed:
-	<init>.
-All member reference dependencies will be considered within this context.
-The following modified names cause invalidation of /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala: Set(<init>)
-The following modified names cause invalidation of /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/CLInterface.scala: Set(<init>)
-The following modified names cause invalidation of /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/Testing.scala: Set(<init>)
-Invalidating /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala...
-Invalidating (transitively) by inheritance from /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala...
-Initial set of included nodes: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala)
-Invalidated by transitive inheritance dependency: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala)
-The /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala source file has the following regular definitions changed:
-	seamCarve, seamCarvePics, seamCarveVideo.
-All member reference dependencies will be considered within this context.
-Name hashing optimization doesn't apply to non-Scala dependency: /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java
-Invalidating /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala...
-Invalidating (transitively) by inheritance from /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala...
-Initial set of included nodes: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala)
-Invalidated by transitive inheritance dependency: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala)
-The /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/controllers/RestController.scala source file has the following regular definitions changed:
-	getImgResp, fullRead, seamNumRead, heightWidthRatioRead, seamCarve, fullReader, readerList, readJson, minRead, seamCarveVideo, seamCarvePics.
-All member reference dependencies will be considered within this context.
-The following modified names cause invalidation of /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/Routes.scala: Set(seamCarveVideo, seamCarvePics)
-New invalidations:
-	Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/Testing.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/CLInterface.scala)
-Initial set of included nodes: Set(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/Testing.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/router/Routes.scala, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/routes/main/controllers/routes.java, /Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/app/com/gdicristofaro/seamcarve/jvm/CLInterface.scala)
-Previously invalidated, but (transitively) depend on new invalidations:
-	Set()
-All newly invalidated sources after taking into account (previously) recompiled sources:Set()
-Total time: 18 s, completed May 24, 2016 9:01:26 PM
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/compile:discoveredMainClasses
-Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@4ebabbdd, check cycles: false
-Received TaskFinished for a task we don't know about TaskFinished(2,136,Some(AttributeKey[java.lang.String]("compileAnalysisFilename") in Scope(Build: file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/, , Project: ProjectReference(file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/,root), Config: compile)),true,None)
-Received TaskFinished for a task we don't know about TaskFinished(2,136,Some(AttributeKey[java.lang.String]("compileAnalysisFilename") in Scope(Build: file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/, , Project: ProjectReference(file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/,root), Config: compile)),true,None)
-Use 'last' for the full log.
-> server-post-command-error-handler
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/compile:mainClass
-Evaluating tasks: compile:mainClass
-Running task... Cancel: sbt.server.ServerTaskCancellation@7fbbf67a, check cycles: false
-Total time: 0 s, completed May 24, 2016 9:01:26 PM
-> server-post-command-cleanup
-> server-handle-next-server-request
-> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/compile:discoveredMainClasses
-Evaluating tasks: compile:discoveredMainClasses
-Running task... Cancel: sbt.server.ServerTaskCancellation@595bbd5b, check cycles: false
+Running task... Cancel: sbt.server.ServerTaskCancellation@32bd4423, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -1052,6 +947,460 @@ Sources indirectly invalidated by:
 	external source: Set()
 All initially invalidated sources: Set()
 
-Total time: 1 s, completed May 24, 2016 9:01:27 PM
+Total time: 2 s, completed Jun 3, 2016 8:25:11 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@37cc9aa3, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 1 s, completed Jun 3, 2016 8:25:12 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@1ae8015f, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:25:12 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@674ff4c6, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 0 s, completed Jun 3, 2016 8:25:12 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@6b1a866c, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 0 s, completed Jun 3, 2016 8:25:27 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@71bef2c3, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:25:27 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@7c50cd9f, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:25:35 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@4d345997, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:25:38 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@4717a387, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+SLF4J: The following set of substitute loggers may have been accessed
+SLF4J: during the initialization phase. Logging calls during this
+SLF4J: phase were not honored. However, subsequent logging calls to these
+SLF4J: loggers will work as normally expected.
+SLF4J: See also http://www.slf4j.org/codes.html#substituteLogger
+SLF4J: org.webjars.CloseQuietly
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 2 s, completed Jun 3, 2016 8:25:42 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@220e6653, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 1 s, completed Jun 3, 2016 8:30:49 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> jobStop 1
+Evaluating tasks: *:jobStop
+Running task... Cancel: sbt.server.ServerTaskCancellation@5f28cf09, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:30:49 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@4de4a5cc, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:30:49 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@768024d5, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:30:53 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@7bbc22a8, check cycles: false
+Total time: 0 s, completed Jun 3, 2016 8:30:55 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@53a3a284, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 8:30:57 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@43612988, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:01:30 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@5b1be13a, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:02:18 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@5164610d, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:02:44 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@447a657d, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:04:32 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@34a2fb80, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:10:25 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@5bfcb045, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:11:52 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@7eeb3b70, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:30:51 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@31337386, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:34:21 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@44c5ebea, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 9:42:03 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@7eb82a03, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/application.conf,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/application.conf)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/logback.xml,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/logback.xml)
+	(/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/conf/routes,/Users/gregdicristofaro/git/SeamCarveScalaJS/play-scala/target/scala-2.11/classes/routes)
+Total time: 1 s, completed Jun 3, 2016 10:05:03 PM
 > server-post-command-cleanup
 > server-handle-next-server-request

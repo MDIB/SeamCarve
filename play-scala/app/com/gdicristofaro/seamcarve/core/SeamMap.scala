@@ -903,6 +903,13 @@ class Resizer(
 
   var _finalImg : Option[Image] = None
 
+  def getSeamImage : Image = {
+    val seamImg = img.copy
+    SeamVisualization.drawSeam(seamImg, SeamConstants.DEFAULT_SEAM_COLOR, vertSeamPts++horzSeamPts)
+    seamImg
+  }
+
+
   /**
     * @return		returns the finished image
     */

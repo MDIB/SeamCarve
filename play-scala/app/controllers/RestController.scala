@@ -91,7 +91,8 @@ class RestController extends Controller {
   def getImgs(resizer : Resizer) : JsValue = {
     JsObject(Seq(
       "finalImage" -> JsString(imgToDataURL(resizer.getFinalImage.asInstanceOf[JVMImage].bufferedImage)),
-      "energyImage" -> JsString(imgToDataURL(resizer.energyRetriever.getImage.asInstanceOf[JVMImage].bufferedImage))
+      "energyImage" -> JsString(imgToDataURL(resizer.energyRetriever.getImage.asInstanceOf[JVMImage].bufferedImage)),
+      "seamImage" -> JsString(imgToDataURL(resizer.getSeamImage.asInstanceOf[JVMImage].bufferedImage))
     ))
   }
 

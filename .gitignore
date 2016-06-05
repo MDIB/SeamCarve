@@ -1,1 +1,14 @@
-*.DS_Store
+/clientui/node_modules/*
+/clientui/npm-debug.log
+.DS_Store
+/play-scala/logs
+/play-scala/target
+/play-scala/.idea
+/play-scala/.idea_modules
+/play-scala/.classpath
+/play-scala/.project
+/play-scala/.settings
+/play-scala/RUNNING_PID
+/play-scala/.sbtserver/*
+/play-scala/test
+/play-scala/bin

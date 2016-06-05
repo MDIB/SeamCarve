@@ -10,6 +10,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import ImageBlurOff from 'material-ui/svg-icons/image/blur-off';
 import ImageImage from 'material-ui/svg-icons/image/Image';
 import ImageCompare from 'material-ui/svg-icons/image/Compare';
 import AvMovie from 'material-ui/svg-icons/av/Movie';
@@ -21,7 +22,12 @@ import Checkbox from 'material-ui/Checkbox';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 
-import Whammy from 'whammy/whammy'
+import Whammy from 'whammy/whammy';
+
+var $ = require('jquery');
+var fancybox = require('fancybox')($);
+
+
 
 const styles = {
   card: {
@@ -69,6 +75,11 @@ const styles = {
   },
   swipeableDiv: {
     padding: 10
+  },
+  imageDivStyle: {
+    'background-repeat': 'no-repeat',
+    'background-position': 'center center',
+    'background-size': 'contain'
   }
 };
 
@@ -129,6 +140,7 @@ class Main extends React.Component {
         {
           renderedImageSrc : null,
           energyImageSrc : null,
+          seamImageSrc : null,
           request : null
         },
       videoResponse :
@@ -139,17 +151,10 @@ class Main extends React.Component {
 
       windowWidth : window.innerWidth,
       slideIndex : 0,   // which item in settings is selected
-      isLoading : false   // server request showing loading signal
+      isLoading : false,   // server request showing loading signal
+
+      errorAlert : []
     };
-
-    this.showRenderedImage = this.showRenderedImage.bind(this);
-    this.hideRenderedImage = this.hideRenderedImage.bind(this);
-
-    this.showEnergy = this.showEnergy.bind(this);
-    this.hideEnergy = this.hideEnergy.bind(this);
-
-    this.showMakingOf = this.showMakingOf.bind(this);
-    this.hideMakingOf = this.hideMakingOf.bind(this);
 
     this.onDrop = this.onDrop.bind(this);
 
@@ -162,9 +167,17 @@ class Main extends React.Component {
     this.picOnSuccess = this.picOnSuccess.bind(this);
     this.vidOnSuccess = this.vidOnSuccess.bind(this);
     this.packageSendRequest = this.packageSendRequest.bind(this);
+
     this.openMakingOf = this.openMakingOf.bind(this);
     this.openImageEnergy = this.openImageEnergy.bind(this);
     this.openRenderedPicture = this.openRenderedPicture.bind(this);
+    this.openPictureSeams = this.openPictureSeams.bind(this);
+    this.handleAlertClose = this.handleAlertClose.bind(this);
+
+    this.getMaxEnergyError = this.getMaxEnergyError.bind(this);
+    this.getHeightWidthRatioError = this.getHeightWidthRatioError.bind(this);
+    this.getHorzSeamsError = this.getHorzSeamsError.bind(this);
+    this.getVertSeamsError = this.getVertSeamsError.bind(this);
   }
 
   componentDidMount() {
@@ -178,7 +191,6 @@ class Main extends React.Component {
   // when an image is dropped or chosen
   onDrop(files) {
     var that = this;
-    that.reset();
     var fr = new FileReader();
     fr.onload = function() {
         var img = new Image();
@@ -195,15 +207,6 @@ class Main extends React.Component {
     };
     fr.readAsDataURL(files[0]);
   }
-
-  showRenderedImage() { this.setState({renderedImageOpen : true}); }
-  hideRenderedImage() { this.setState({renderedImageOpen : false}); }
-
-  showEnergy() { this.setState({energyOpen : true}); }
-  hideEnergy() { this.setState({energyOpen : false}); }
-
-  showMakingOf() { this.setState({makingOfOpen : true}); }
-  hideMakingOf() { this.setState({makingOfOpen : false}); }
 
   // returns error if curval is outside of minval and maxval
   dimensionError(curVal, minVal, maxVal, error) {
@@ -246,8 +249,9 @@ class Main extends React.Component {
   picOnSuccess(request, response) {
     this.setState({
       imageResponse : {
-        renderedImageSrc : r.finalImage,
-        energyImageSrc : r.energyImage,
+        renderedImageSrc : response.finalImage,
+        energyImageSrc : response.energyImage,
+        seamImageSrc : response.seamImage,
         request : request
       }
     });
@@ -255,9 +259,21 @@ class Main extends React.Component {
 
   // parses video from request
   vidOnSuccess(request, response) {
+    var that = this;
+
     var frameRate = 30;
     var encoder = new Whammy.Video(frameRate);
-    r.forEach(function(canvas) { encoder.add(canvas); });
+    response.forEach(function(dataurl) {
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      var image = document.createElement('img');
+      image.src = dataurl;
+      canvas.width = image.width;
+      canvas.height = image.height;
+      ctx.drawImage(image,0,0);
+      encoder.add(canvas);
+    });
+
     var output = encoder.compile();
     // the video url
     var video = (window.webkitURL || window.URL).createObjectURL(output);
@@ -269,15 +285,20 @@ class Main extends React.Component {
     });
   }
 
-  // packages response
+  // packages response if image
   // onsuccessfunct is a function taking (request, response) argument
   // prevRequest (this function compares current request against previous request and returns cache if ===)
   // when all done, calls on Finish callback
   packageSendRequest(onSuccessFunct, serverURL, prevRequest, onFinishCallback) {
+    if (this.state.origImage === null) {
+      this.setState({errorAlert: ["Original image is not set"]});
+      return;
+    }
+
     var that = this;
     var canvas = document.createElement("canvas");
-    canvas.width = origWidth;
-    canvas.height = origHeight;
+    canvas.width = this.state.origImageWidth;
+    canvas.height = this.state.origImageHeight;
     var ctx = canvas.getContext("2d");
     var img = new Image();
 
@@ -290,12 +311,35 @@ class Main extends React.Component {
       if (that.state.slideIndex == 1) {
         request.heightWidthRatio = that.state.heightWidthRatio;
         request.seamRemoval = that.state.seamRemoval;
+
+        // check error in height width ratio
+        var heightWidthRatioErr = that.getHeightWidthRatioError();
+        if (heightWidthRatioErr.length > 0) {
+            that.setState({errorAlert: [heightWidthRatioErr]});
+            return;
+        }
       }
       // all settings
       else if (that.state.slideIndex == 2) {
         request.maxEnergy = that.state.maxEnergy;
-        request.vertSeamNum = that.state.vertSeamNum;
-        request.horzSeamNum = that.state.horzSeamNum;
+        request.vertSeamsNum = that.state.vertSeamsNum;
+        request.horzSeamsNum = that.state.horzSeamsNum;
+        request.seamRemoval = that.state.seamRemoval;
+
+        // check for errors in fields
+        const maxEnergyError = that.getMaxEnergyError();
+        const horzSeamsError = that.getHorzSeamsError();
+        const vertSeamsError = that.getVertSeamsError();
+
+        var errors = [];
+        if (maxEnergyError.length > 0) errors.push(maxEnergyError);
+        if (horzSeamsError.length > 0) errors.push(horzSeamsError);
+        if (vertSeamsError.length > 0) errors.push(vertSeamsError);
+
+        if (errors.length > 0) {
+          that.setState({errorAlert: errors});
+          return;
+        }
       }
 
       // if the previous request doesn't equal this request, pull from server
@@ -303,78 +347,104 @@ class Main extends React.Component {
         onFinishCallback();
       }
       else {
-        serverRequest(serverURL, request,
+        that.serverRequest(serverURL, request,
           function(request, response) {
             onSuccessFunct(request, response);
             onFinishCallback();
           });
       }
     }
-    img.src = imgSrc;
+    img.src = this.state.origImage;
   }
 
+  // show light box with img item
+  lightbox(item) {
+    $.fancybox({
+      href : item,
+      title : '<a style="color: #fff; text-decoration: none;" href="' + item + '" download>Click to Download</a>'
+    });
+  }
 
   openRenderedPicture() {
     var that = this;
-    packageSendRequest(picOnSuccess, serverPicsURL, this.state.imageResponse.request,
-      function() { that.state.renderedImageOpen = true; });
+    this.packageSendRequest(this.picOnSuccess, serverPicsURL, this.state.imageResponse.request,
+      function() { that.lightbox(that.state.imageResponse.renderedImageSrc); });
   }
 
   openImageEnergy() {
     var that = this;
-    packageSendRequest(picOnSuccess, serverPicsURL, this.state.imageResponse.request,
-      function() { that.state.energyOpen = true; });
+    this.packageSendRequest(this.picOnSuccess, serverPicsURL, this.state.imageResponse.request,
+      function() { that.lightbox(that.state.imageResponse.energyImageSrc); });
+  }
+
+  openPictureSeams() {
+    var that = this;
+    this.packageSendRequest(this.picOnSuccess, serverPicsURL, this.state.imageResponse.request,
+      function() { that.lightbox(that.state.imageResponse.seamImageSrc); });
   }
 
   openMakingOf() {
     var that = this;
-    packageSendRequest(vidOnSuccess, serverVidURL, this.state.videoResponse.request,
-      function() { that.state.makingOfOpen = true; });
+    this.packageSendRequest(this.vidOnSuccess, serverVidURL, this.state.videoResponse.request,
+      function() {
+        var vid = that.state.videoResponse.makingOfSrc;
+        $.fancybox(
+          `<video controls>
+               <source src="` + vid + `" />
+               Your browser does not support HTML5 video.
+             </video>`);
+      });
   }
 
+  handleAlertClose() {
+    this.setState({errorAlert: []});
+  }
+
+  getHeightWidthRatioError() {
+    return (this.state.heightWidthRatio <= 0) ?
+        "The Height Width Ratio needs to be greater than 0" : "";
+  }
+
+  getMaxEnergyError() {
+    return this.dimensionError(this.state.maxEnergy, 0, 1,
+      "The maximum energy has to be between 0 and 1");
+  }
+
+  getHorzSeamsError() {
+    console.debug("horizontal seams and and height", this.state.horzSeamsNum, this.state.origImageHeight);
+    return this.dimensionError(this.state.horzSeamsNum, 0, this.state.origImageHeight - 1,
+      "Cannot remove negative seams and must remove less seams than the original image height");
+  }
+
+  getVertSeamsError() {
+    console.debug("vert seams and and width", this.state.vertSeamsNum, this.state.origImageWidth);
+    return this.dimensionError(this.state.vertSeamsNum, 0, this.state.origImageWidth - 1,
+      "Cannot remove negative seams and must remove less seams than the original image width");
+  }
 
   render() {
     const that = this;
 
-    const heightError = this.dimensionError(that.state.heightFieldValue, 1, NaN,
-      "The new image height has to be greater than 1");
+    const heightWidthRatioError = this.getHeightWidthRatioError();
+    const maxEnergyError = this.getMaxEnergyError();
+    const horzSeamsError = this.getHorzSeamsError();
+    const vertSeamsError = this.getVertSeamsError();
 
-    const widthError = this.dimensionError(that.state.widthFieldValue, 1, NaN,
-      "The new image width has to be greater than 1");
+      const OKButton = [
+        <FlatButton
+          label="OK"
+          primary={true}
+          onTouchTap={this.handleAlertClose}
+        />
+      ];
 
-    const horzSeamsError = this.dimensionError(that.state.horzSeamsFieldValue, 0, that.state.origImageHeight - 1,
-      "Cannot remove negative seams and must remove less seams than the original image height");
+    const heightWidthRatioUpdate = function(e) { that.setState({heightWidthRatio : parseFloat(e.target.value) }); }
+    const maxEnergyUpdate = function(e) { that.setState({maxEnergy : parseFloat(e.target.value) }); }
+    const horzSeamsFieldUpdate = function(e) { that.setState({horzSeamsNum : parseInt(e.target.value, 10) }); }
+    const vertSeamsFieldUpdate = function(e) { that.setState({vertSeamsNum : parseInt(e.target.value, 10) }); }
+    const seamRemovalUpdate = function(e,v) { that.setState({seamRemoval : !that.state.seamRemoval }); }
 
-    const vertSeamsError = this.dimensionError(that.state.vertSeamsFieldValue, 0, that.state.origImageWidth - 1,
-      "Cannot remove negative seams and must remove less seams than the original image width");
-
-    const heightFieldUpdate = function(e,v) { that.setState({heightFieldValue : parseInt(v, 10) }); }
-    const widthFieldUpdate = function(e,v) { that.setState({widthFieldValue : parseInt(v, 10) }); }
-    const horzSeamsFieldUpdate = function(e,v) { that.setState({horzSeamsFieldValue : parseInt(v, 10) }); }
-    const vertSeamsFieldUpdate = function(e,v) { that.setState({vertSeamsFieldValue : parseInt(v, 10) }); }
-
-    const renderedImageButton =
-      (<FlatButton
-        label="Ok"
-        secondary={false}
-        onTouchTap={this.hideRenderedImage}
-      />);
-
-    const energyButton =
-      (<FlatButton
-        label="Ok"
-        secondary={false}
-        onTouchTap={this.hideEnergy}
-      />);
-
-    const makingOfButton =
-      (<FlatButton
-        label="Ok"
-        secondary={false}
-        onTouchTap={this.hideMakingOf}
-      />);
-
-      var previewImage =
+    var previewImage =
       (this.state.origImage === null) ?
         null :
         (<Paper style={styles.imagePaper} zDepth={3}>
@@ -386,33 +456,21 @@ class Main extends React.Component {
     var winWidth = this.state.windowWidth;
     var refreshStatus = this.state.isLoading ? "loading" : "hide";
 
+    var errorText = this.state.errorAlert.map(function(item) {
+      return (<p>{item}</p>);
+    });
+
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       <div>
         <Dialog
-          open={this.state.renderedImageOpen}
-          title="Rendered Image"
-          actions={renderedImageButton}
-          onRequestClose={this.hideRenderedImage} >
-          <img src={this.state.imageResponse.renderedImageSrc} />
-        </Dialog>
-        <Dialog
-          open={this.state.energyOpen}
-          title="Image Energy"
-          actions={energyButton}
-          onRequestClose={this.hideEnergy} >
-          <img src={this.state.imageResponse.energyImageSrc} />
-        </Dialog>
-        <Dialog
-          open={this.state.makingOfOpen}
-          title="The Whole Process"
-          actions={makingOfButton}
-          onRequestClose={this.hideMakingOf} >
-          <video controls>
-            {/* TODO change video/mp4 based on what you get */}
-            <source src={this.state.videoResponse.makingOfSrc} />
-            Your browser does not support HTML5 video.
-          </video>
+          actions={OKButton}
+          modal={false}
+          open={this.state.errorAlert.length > 0}
+          onRequestClose={this.handleAlertClose}
+          title="There was an Error"
+        >
+          {errorText}
         </Dialog>
         <RefreshIndicator
           size={60}
@@ -456,32 +514,48 @@ class Main extends React.Component {
             </div>
             <div style={styles.swipeableDiv}>
               Remove or insert seams to achieve a particular height to width ratio.
-              <Checkbox label="Remove seams" />
+              <Checkbox
+                label="Remove seams"
+                checked={this.state.seamRemoval}
+                onCheck={seamRemovalUpdate}
+              />
               <TextField
                 style={styles.textfield}
                 floatingLabelText="Ratio of height to width"
                 type="number"
+                onChange={heightWidthRatioUpdate}
+                errorText={heightWidthRatioError}
               />
             </div>
             <div style={styles.swipeableDiv}>
               All options for the seam carving process.
-              <Checkbox label="Remove seams" />
+              <Checkbox
+                label="Remove seams"
+                checked={this.state.seamRemoval}
+                onCheck={seamRemovalUpdate}
+              />
               <div>
                 <TextField
                   style={styles.textfield}
                   floatingLabelText="Vertical seams to remove"
                   type="number"
+                  onChange={vertSeamsFieldUpdate}
+                  errorText={vertSeamsError}
                 />
                 <TextField
                   style={styles.textfield}
                   floatingLabelText="Horizontal seams to remove"
                   type="number"
+                  onChange={horzSeamsFieldUpdate}
+                  errorText={horzSeamsError}
                 />
               </div>
               <TextField
                 style={styles.textfield}
                 floatingLabelText="Maximum pixel energy"
                 type="number"
+                onChange={maxEnergyUpdate}
+                errorText={maxEnergyError}
               />
             </div>
           </SwipeableViews>
@@ -498,6 +572,11 @@ class Main extends React.Component {
             label="View Image Energy"
             onTouchTap={this.openImageEnergy}
             icon={<ImageCompare />}
+          />
+          <FlatButton
+            label="View Seams"
+            onTouchTap={this.openPictureSeams}
+            icon={<ImageBlurOff />}
           />
           <FlatButton
             label="Watch the Process (might take a bit)"
