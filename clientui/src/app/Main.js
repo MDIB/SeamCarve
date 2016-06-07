@@ -238,7 +238,6 @@ class Main extends React.Component {
         that.setState({isLoading: false})
       },
       error: function(xhr, textStatus, errorMessage) {
-        console.log("there was an error ", textStatus, errorMessage, xhr);
         that.setState({isLoading: false})
       },
       dataType: "json"
@@ -411,13 +410,11 @@ class Main extends React.Component {
   }
 
   getHorzSeamsError() {
-    console.debug("horizontal seams and and height", this.state.horzSeamsNum, this.state.origImageHeight);
     return this.dimensionError(this.state.horzSeamsNum, 0, this.state.origImageHeight - 1,
       "Cannot remove negative seams and must remove less seams than the original image height");
   }
 
   getVertSeamsError() {
-    console.debug("vert seams and and width", this.state.vertSeamsNum, this.state.origImageWidth);
     return this.dimensionError(this.state.vertSeamsNum, 0, this.state.origImageWidth - 1,
       "Cannot remove negative seams and must remove less seams than the original image width");
   }
