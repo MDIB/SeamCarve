@@ -1,24 +1,24 @@
 package com.gdicristofaro.seamcarve.jvm
 
 import java.awt.image.BufferedImage
+
 import com.gdicristofaro.seamcarve.core.Image
 import com.gdicristofaro.seamcarve.core.Color
 import com.gdicristofaro.seamcarve.core.ImagePointer
 import javax.imageio.ImageIO
+
 import com.gdicristofaro.seamcarve.core.ImageUtils
 import java.awt.image.ImageObserver
 import java.awt.AlphaComposite
+
 import com.gdicristofaro.seamcarve.core.ImgPosition
 import com.gdicristofaro.seamcarve.core.TopLeftPosition
 import java.awt.RenderingHints
+
 import com.gdicristofaro.seamcarve.core.SeamConstants
 import java.io.File
-import com.xuggle.mediatool.ToolFactory
-import com.xuggle.xuggler.ICodec
-import java.util.concurrent.TimeUnit
 
-
-
+import org.jcodec.api.awt.SequenceEncoder
 
 class JVMImage(val bufferedImage : BufferedImage) extends Image {
   def copy: Image = {
@@ -184,25 +184,18 @@ class JVMImageUtils extends ImageUtils {
 	def outputVideo(imgs : Array[ImagePointer], fps : Int, filePath : String) {
     if (imgs.length == 0)
       return
-    
-    // the xuggle writer
-		val writer = ToolFactory.makeWriter(filePath)
 
-		val img0 = imgs(0).load.asInstanceOf[JVMImage].bufferedImage
-		
-		// set up the video stream
-		writer.addVideoStream(0, 0, ICodec.ID.CODEC_ID_MPEG4, img0.getWidth, img0.getHeight)
+		val enc = new SequenceEncoder(new File(filePath))
 
 		for (index <- 0 until imgs.length) {
-		  // add image at right location
-		  val img = imgs(index).load.asInstanceOf[JVMImage].bufferedImage
+			// add image at right location
+			val img = imgs(index).load.asInstanceOf[JVMImage].bufferedImage
 			val newBuffImage = new BufferedImage(img.getWidth, img.getHeight, BufferedImage.TYPE_3BYTE_BGR)
 			newBuffImage.getGraphics.drawImage(img, 0,0,null)
-			writer.encodeVideo(0, newBuffImage, ((1000.toDouble / fps) * index).toInt, TimeUnit.MILLISECONDS)
+			enc.encodeImage(newBuffImage)
 		}
-    
-		// tell the writer to close and write the trailer if  needed
-  	writer.close()
+
+		enc.finish
   }
 }
 

@@ -12,3 +12,4 @@
 /play-scala/.sbtserver/*
 /play-scala/test
 /play-scala/bin
+/play-scala/.git
