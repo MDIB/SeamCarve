@@ -9,4 +9,5 @@ GET     /                                 controllers.Assets.at(path="/public", 
 
 POST    /seamcarvepics                         controllers.RestController.seamCarvePics
 
-POST    /seamcarvevideo                         controllers.RestController.seamCarveVideo
+# This ended up eating too much memory, so disabled for time being
+# POST    /seamcarvevideo                         controllers.RestController.seamCarveVideo

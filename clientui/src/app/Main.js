@@ -575,11 +575,16 @@ class Main extends React.Component {
             onTouchTap={this.openPictureSeams}
             icon={<ImageBlurOff />}
           />
+          {
+          /*
+          this ended up eating up too much memory so disabled for time being  
           <FlatButton
             label="Watch the Process (might take a bit)"
             onTouchTap={this.openMakingOf}
             icon={<AvVideocam/>}
           />
+          */
+          }
         </Card>
         <Card style={styles.card}>
           <h2>Explanation</h2>
