@@ -89,8 +89,11 @@ const muiTheme = getMuiTheme({
   },
 });
 
-const serverPicsURL = "/seamcarvepics";
-const serverVidURL = "/seamcarvevideo";
+const serverPicsURL = "ws://" + location.host + "/seamcarvepics";
+const serverVidURL = "ws://" + location.host + "/seamcarvevideo";
+const pingRate = 5000; // ping every 5 sec
+const maxWidth = 500;
+const maxHeight = 500;
 
 
 function objectEquality(objA, objB) {
@@ -195,12 +198,18 @@ class Main extends React.Component {
     fr.onload = function() {
         var img = new Image();
         img.onload = function() {
-          that.setState({
-            origImage : fr.result,  // the data url
-            origImageName : files[0].name,
-            origImageWidth : img.width,
-            origImageHeight : img.height
-          });
+          if (img.width > maxWidth || img.height > maxHeight) {
+            that.setState({errorAlert: ["Image dimensions: " + img.width + " x " + img.height +
+              " are greater than the maximum dimensions of " + maxWidth + " x " + maxHeight]});
+          }
+          else {
+            that.setState({
+              origImage : fr.result,  // the data url
+              origImageName : files[0].name,
+              origImageWidth : img.width,
+              origImageHeight : img.height
+            });
+          }
         };
 
         img.src = fr.result;
@@ -222,26 +231,39 @@ class Main extends React.Component {
 
   // sends an ajax request of json (also shows loading signal)
   serverRequest(serverURL, request, onSuccess) {
-    this.setState({isLoading: true});
-    var requestStr = JSON.stringify(request);
+    // TODO fix this
     var that = this;
-    $.ajax({
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      },
-      type: "POST",
-      url: serverURL,
-      data: requestStr,
-      success: function(response) {
-        onSuccess(request, response);
-        that.setState({isLoading: false})
-      },
-      error: function(xhr, textStatus, errorMessage) {
-        that.setState({isLoading: false})
-      },
-      dataType: "json"
-    });
+    var pinger = null;
+    var webSocket = new WebSocket(serverURL);
+    webSocket.onopen = function() {
+      // set state to loading
+      that.setState({isLoading: true});
+      // send message
+      webSocket.send(JSON.stringify(request));
+
+      // set up pinger to keep the connection live
+      pinger = setInterval(function() {
+        console.log("pinging server");
+        webSocket.send("ping");
+      }, pingRate);
+    }
+
+    var onFinish = function() {
+      that.setState({isLoading: false});
+      webSocket.close();
+
+      if (pinger != null)
+        clearInterval(pinger);
+    }
+
+    webSocket.onmessage = function(e) {
+      console.log("received server message")
+      onFinish();
+      onSuccess(request, JSON.parse(e.data));
+    }
+
+    webSocket.onerror = function(e) { console.log("there was an error with the websocket: ", e); onFinish(); }
+    webSocket.onclose = onFinish;
   }
 
   // on success, sets up proper items for rendered image or energy image
@@ -289,6 +311,16 @@ class Main extends React.Component {
   // prevRequest (this function compares current request against previous request and returns cache if ===)
   // when all done, calls on Finish callback
   packageSendRequest(onSuccessFunct, serverURL, prevRequest, onFinishCallback) {
+    // if has current message, returns curMes, if not returns "{itemName} has to be a real value"
+    var testNaN = function(itemName, curMess, curVal) {
+      if (curMess != null && curMess.length > 0)
+        return curMess;
+      else if (isNaN(curVal))
+        return itemName + " must be a real value"
+      else
+        return ""
+    }
+
     if (this.state.origImage === null) {
       this.setState({errorAlert: ["Original image is not set"]});
       return;
@@ -312,8 +344,9 @@ class Main extends React.Component {
         request.seamRemoval = that.state.seamRemoval;
 
         // check error in height width ratio
-        var heightWidthRatioErr = that.getHeightWidthRatioError();
-        if (heightWidthRatioErr.length > 0) {
+        var heightWidthRatioErr =
+          testNaN("height to width ratio", that.getHeightWidthRatioError(), that.state.heightWidthRatio);
+        if (heightWidthRatioErr != null && heightWidthRatioErr.length > 0) {
             that.setState({errorAlert: [heightWidthRatioErr]});
             return;
         }
@@ -326,14 +359,17 @@ class Main extends React.Component {
         request.seamRemoval = that.state.seamRemoval;
 
         // check for errors in fields
-        const maxEnergyError = that.getMaxEnergyError();
-        const horzSeamsError = that.getHorzSeamsError();
-        const vertSeamsError = that.getVertSeamsError();
+        const maxEnergyError =
+          testNaN("maximum energy", that.getMaxEnergyError(), that.state.maxEnergy);
+        const horzSeamsError =
+          testNaN("horizontal seams", that.getHorzSeamsError(), that.state.horzSeamsNum);
+        const vertSeamsError =
+          testNaN("vertical seams", that.getVertSeamsError(), that.state.vertSeamsNum);
 
         var errors = [];
-        if (maxEnergyError.length > 0) errors.push(maxEnergyError);
-        if (horzSeamsError.length > 0) errors.push(horzSeamsError);
-        if (vertSeamsError.length > 0) errors.push(vertSeamsError);
+        if (maxEnergyError != null && maxEnergyError.length > 0) errors.push(maxEnergyError);
+        if (horzSeamsError != null && horzSeamsError.length > 0) errors.push(horzSeamsError);
+        if (vertSeamsError != null && vertSeamsError.length > 0) errors.push(vertSeamsError);
 
         if (errors.length > 0) {
           that.setState({errorAlert: errors});
@@ -401,7 +437,7 @@ class Main extends React.Component {
 
   getHeightWidthRatioError() {
     return (this.state.heightWidthRatio <= 0) ?
-        "The Height Width Ratio needs to be greater than 0" : "";
+        "The Height Width Ratio needs to be greater than 0" : null;
   }
 
   getMaxEnergyError() {
@@ -453,8 +489,8 @@ class Main extends React.Component {
     var winWidth = this.state.windowWidth;
     var refreshStatus = this.state.isLoading ? "loading" : "hide";
 
-    var errorText = this.state.errorAlert.map(function(item) {
-      return (<p>{item}</p>);
+    var errorText = this.state.errorAlert.map(function(item, i) {
+      return (<p key={i}>{item}</p>);
     });
 
     return (
@@ -577,7 +613,7 @@ class Main extends React.Component {
           />
           {
           /*
-          this ended up eating up too much memory so disabled for time being  
+          this ended up eating up too much memory so disabled for time being
           <FlatButton
             label="Watch the Process (might take a bit)"
             onTouchTap={this.openMakingOf}

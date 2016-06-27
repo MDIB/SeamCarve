@@ -3,11 +3,8 @@
 # ~~~~
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /*file               controllers.Assets.versioned(path="/public", file)
+GET     /seamcarvepics         controllers.RestController.seamCarvePics
 
-GET     /                                 controllers.Assets.at(path="/public", file="index.html")
+GET     /*file                 controllers.Assets.versioned(path="/public", file)
 
-POST    /seamcarvepics                         controllers.RestController.seamCarvePics
-
-# This ended up eating too much memory, so disabled for time being
-# POST    /seamcarvevideo                         controllers.RestController.seamCarveVideo
+GET     /                      controllers.Assets.at(path="/public", file="index.html")
